@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../utils/app_colors.dart';
-import '../../widgets/app_text_feild.dart';
-import '../../widgets/back_button.dart';
-import '../../widgets/my_button.dart';
+import '../../common/widgets/app_text_feild.dart';
+import '../../common/widgets/back_button.dart';
+import '../../common/widgets/my_button.dart';
 
 class CreateNewAccount extends StatefulWidget {
   const CreateNewAccount({super.key});
@@ -53,8 +54,10 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
 
   Widget _backButton() {
     return Row(
-      children: const [
-        AppBackBtn(),
+      children: [
+        AppBackBtn(
+          onTap: () => Get.back(),
+        ),
       ],
     );
   }

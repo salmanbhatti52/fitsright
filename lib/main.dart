@@ -1,5 +1,5 @@
 import 'package:fits_right/routes/app_routes.dart';
-import 'package:fits_right/views/common/screens/splash_screen/splash_screen.dart';
+import 'package:fits_right/views/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       const Duration(seconds: 3),
       () {
-        Get.offNamed(ScreenNames.loginScreen);
+        Get.offAndToNamed(ScreenNames.loginScreen);
       },
     );
   }

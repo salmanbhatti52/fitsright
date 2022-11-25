@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../utils/app_colors.dart';
-import '../../widgets/back_button.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
-import '../../widgets/my_button.dart';
+import '../../common/widgets/back_button.dart';
+import '../../common/widgets/my_button.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -51,8 +51,10 @@ class _OtpScreenState extends State<OtpScreen> {
 
   Widget _backButton() {
     return Row(
-      children: const [
-        AppBackBtn(),
+      children: [
+        AppBackBtn(
+          onTap: () => Get.back(),
+        ),
       ],
     );
   }

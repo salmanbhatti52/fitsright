@@ -4,6 +4,7 @@ import 'package:fits_right/views/common/widgets/app_text_feild.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/my_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,8 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget backButton() {
     return Row(
-      children: const [
-        AppBackBtn(),
+      children: [
+        AppBackBtn(
+          onTap: () => SystemNavigator.pop(),
+        ),
       ],
     );
   }
@@ -123,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Flexible(
           child: MyButton(
+              onTap: () => Get.toNamed(ScreenNames.selectGenderScreen),
               radius: 15,
               color: AppColors.commonBtnColor,
               height: size.height * 0.07,

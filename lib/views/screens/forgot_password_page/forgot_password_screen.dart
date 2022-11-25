@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../utils/app_colors.dart';
-import '../../widgets/back_button.dart';
+import '../../common/widgets/back_button.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -53,8 +53,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   Widget backButton() {
     return Row(
-      children: const [
-        AppBackBtn(),
+      children: [
+        AppBackBtn(
+          onTap: () => Get.back(),
+        ),
       ],
     );
   }
