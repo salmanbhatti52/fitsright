@@ -71,7 +71,7 @@ class _OtpScreenState extends State<OtpScreen> {
         _verticalSpace(size.height * 0.010),
         Text(
           textAlign: TextAlign.start,
-          'We send a code to ( *****@mail.com ).\nEnter it here to verify your identity ',
+          'We send a code to ( *****@mail.com ).Enter it here to verify your identity ',
           style: textStyle(
               FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
         ),
@@ -102,7 +102,7 @@ class _OtpScreenState extends State<OtpScreen> {
             ),
             _verticalSpace(size.height * 0.010),
             Text(
-              'send again',
+              'Send again',
               style: textStyle(FontWeight.w600, AppColors.commonBtnColor,
                   size.height * 0.016),
             ),
@@ -114,12 +114,12 @@ class _OtpScreenState extends State<OtpScreen> {
 
   Widget _otpTextFeild() {
     return OtpTextField(
-      enabledBorderColor: Colors.black,
-      disabledBorderColor: Colors.grey,
+      //enabledBorderColor: ,
+      disabledBorderColor: const Color(0xffBDC6D1),
       showFieldAsBox: true,
-      borderRadius: BorderRadius.circular(20),
-      fieldWidth: 50,
-      borderWidth: 0.5,
+      borderRadius: BorderRadius.circular(18),
+      fieldWidth: 55,
+      borderWidth: 0.9,
       focusedBorderColor: AppColors.commonBtnColor,
       keyboardType: TextInputType.number,
     );
@@ -139,7 +139,7 @@ class _OtpScreenState extends State<OtpScreen> {
             child: Text(
               'Confirm',
               style:
-                  textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+                  textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),
           ),
         ),

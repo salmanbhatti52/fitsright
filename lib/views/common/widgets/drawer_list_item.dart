@@ -66,7 +66,7 @@ class DrawerListItem extends StatelessWidget {
     return GoogleFonts.inter(
         fontWeight: FontWeight.w400,
         color: const Color(0xFF8D99AE),
-        fontSize: size.height * 0.016);
+        fontSize: size.height * 0.018);
   }
 
   TextStyle nameTextStyle(Size size) {

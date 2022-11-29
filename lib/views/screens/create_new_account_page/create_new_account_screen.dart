@@ -41,7 +41,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
             Flexible(flex: 1, child: _backButton()),
             Flexible(flex: 1, child: _infoText()),
             Flexible(flex: 2, child: _profilePic()),
-            Flexible(flex: 4, child: _textFeilds()),
+            Flexible(flex: 5, child: _textFeilds()),
             Flexible(flex: 1, child: _nextButton()),
             Flexible(flex: 1, child: _orText()),
             Flexible(flex: 1, child: _signInWith()),
@@ -138,7 +138,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
               child: Text(
                 'Next',
                 style: textStyle(
-                    FontWeight.w700, Colors.white, size.height * 0.016),
+                    FontWeight.w700, Colors.white, size.height * 0.020),
               )),
         ),
       ],
@@ -195,7 +195,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Dont have an account?',
+          'Already have an account?',
           style: textStyle(
               FontWeight.normal, const Color(0xFF6B7280), size.height * 0.016),
         ),
@@ -203,7 +203,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
           width: 1,
         ),
         Text(
-          'Sign Up',
+          'Sign In',
           style: textStyle(
               FontWeight.bold, AppColors.commonBtnColor, size.height * 0.016),
         ),

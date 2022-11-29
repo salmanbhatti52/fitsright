@@ -47,26 +47,29 @@ class _PolicyScreenState extends State<PolicyScreen> {
 
   Widget _titleRow() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        AppBackBtn(
-          onTap: () => Get.back(),
-        ),
+        Builder(builder: (context) {
+          return AppBackBtn(
+            onTap: () => Scaffold.of(context).openDrawer(),
+          );
+        }),
         SizedBox(
-          width: size.width * 0.020,
+          width: size.width * 0.15,
         ),
-        Text(
-          textAlign: TextAlign.end,
+        Flexible(
+            child: Text(
           'Terms and conditions',
           style: textStyle(
               FontWeight.w700, AppColors.commonBtnColor, size.height * 0.025),
-        ),
+        )),
       ],
     );
   }
 
   Widget _policyText() {
     return Text(
-      overflow: TextOverflow.clip,
+      overflow: TextOverflow.ellipsis,
       maxLines: 100,
       textAlign: TextAlign.start,
       '''Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus.Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum. Aenean sapien leo, maximus nec magna vel, gravida auctor quam. Cras congue massa massa, id luctus elit ultricies at. Maecenas in neque justo. 
@@ -123,7 +126,7 @@ Sed vulputate pellentesque lectus, id luctus turpis interdum vel. Fusce aliquet 
             child: Text(
               'Next',
               style:
-                  textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+                  textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),
           ),
         ),

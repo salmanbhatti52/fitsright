@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyDropDownButton extends StatelessWidget {
   const MyDropDownButton({
@@ -29,7 +30,13 @@ class MyDropDownButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Flexible(child: Text(selection)),
+            Flexible(
+                child: Text(
+              selection,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.inter(fontSize: size.height * 0.014),
+            )),
             Flexible(
               child: DropdownButton(
                 iconSize: 20,

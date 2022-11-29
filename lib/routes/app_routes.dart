@@ -1,6 +1,9 @@
 import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/views/screens/home_page/home_page.dart';
+import 'package:fits_right/views/screens/measurement_detail_page/measurement_detail_screen.dart';
+import 'package:fits_right/views/screens/measurement_page/measurement_screen.dart';
 import 'package:fits_right/views/screens/policy_page/policy_screen.dart';
+import 'package:fits_right/views/screens/take_measurement_page/take_measurement_screen.dart';
 import 'package:get/get.dart';
 
 import '../views/screens/create_new_account_page/create_new_account_screen.dart';
@@ -55,6 +58,18 @@ class AppRoutes {
     GetPage(
       name: ScreenNames.policyScreen,
       page: () => const PolicyScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.measurementScreen,
+      page: () => const Measurements(),
+    ),
+    GetPage(
+      name: ScreenNames.takeMeasurementScreen,
+      page: () => const TakeMeasurement(),
+    ),
+    GetPage(
+      name: ScreenNames.measurementDetailScreen,
+      page: () => const MeasurementDetail(),
     ),
   ];
 }

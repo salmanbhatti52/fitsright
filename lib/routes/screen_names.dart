@@ -9,4 +9,7 @@ class ScreenNames {
   static const selectBirthdayScreen = '/selectBirthday';
   static const policyScreen = '/policy';
   static const homeScreen = '/home';
+  static const measurementScreen = '/measurement';
+  static const takeMeasurementScreen = '/takemeasurement';
+  static const measurementDetailScreen = '/measurementDetail';
 }

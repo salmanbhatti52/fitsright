@@ -29,16 +29,23 @@ class AppTextFeild extends StatelessWidget {
           //  suffix: suffix,
           suffixIcon: suffix,
           hintText: hint,
-          enabledBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(18)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: const BorderSide(
+                  width: 0.9,
+                  style: BorderStyle.solid,
+                  color: Color(0xffBDC6D1))),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(18),
               borderSide: const BorderSide(
                   width: 0.9,
                   style: BorderStyle.solid,
                   color: AppColors.commonBtnColor)),
-          disabledBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(18))),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18),
+            borderSide: const BorderSide(
+                width: 0.9, style: BorderStyle.solid, color: Color(0xffBDC6D1)),
+          )),
     );
   }
 }

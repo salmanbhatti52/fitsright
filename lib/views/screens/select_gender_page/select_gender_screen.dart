@@ -1,3 +1,4 @@
+import 'package:fits_right/views/common/widgets/rectangle_image_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -67,7 +68,7 @@ class _SelectGenderState extends State<SelectGender> {
       height: size.height * 0.5,
       child: SvgPicture.asset(
         r'assets/svgs/selectgenderpgsvg.svg',
-        fit: BoxFit.fill,
+        fit: BoxFit.cover,
       ),
     );
   }
@@ -84,7 +85,7 @@ class _SelectGenderState extends State<SelectGender> {
         _verticalSpace(size.height * 0.010),
         Text(
           textAlign: TextAlign.start,
-          'Please choose your Gender. This will be\nused to identify your needs.',
+          'Please choose your Gender. This will be used to identify your needs.',
           style: textStyle(
               FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
         ),
@@ -97,15 +98,15 @@ class _SelectGenderState extends State<SelectGender> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Flexible(
-            child: _genderContainer(
-                picture:
-                    SvgPicture.asset(r'assets/svgs/selectgenderpgsvg2.svg'),
-                gender: 'Male')),
+          child: RectangleimageContainer(
+              picture: SvgPicture.asset(r'assets/svgs/selectgenderpgsvg2.svg'),
+              gender: 'Male'),
+        ),
         Flexible(
-            child: _genderContainer(
-          picture: SvgPicture.asset(r'assets/svgs/selectgenderpgsvg3.svg'),
-          gender: '   Female',
-        )),
+            child: RectangleimageContainer(
+                picture:
+                    SvgPicture.asset(r'assets/svgs/selectgenderpgsvg3.svg'),
+                gender: ' Female')),
       ],
     );
   }
@@ -124,35 +125,11 @@ class _SelectGenderState extends State<SelectGender> {
             child: Text(
               'Next',
               style:
-                  textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+                  textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),
           ),
         ),
       ],
-    );
-  }
-
-  Widget _genderContainer({required Widget picture, required String gender}) {
-    return Container(
-      alignment: Alignment.center,
-      height: size.height * 0.45,
-      width: size.width * 0.43,
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(10)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          picture,
-          _verticalSpace(size.height * 0.005),
-          Text(
-            gender,
-            style:
-                textStyle(FontWeight.w600, Colors.black, size.height * 0.020),
-          )
-        ],
-      ),
     );
   }
 

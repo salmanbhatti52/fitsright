@@ -52,6 +52,25 @@ class _HomePageState extends State<HomePage> {
         alignment: Alignment.center,
         children: [
           _backGrounImage(),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            left: 0,
+            child: UnconstrainedBox(
+              child: Container(
+                height: size.height * 0.3,
+                width: size.width,
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                      Colors.transparent,
+                      Colors.black,
+                    ])),
+              ),
+            ),
+          ),
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: size.width * 0.03, vertical: size.height * 0.04),
@@ -115,15 +134,15 @@ class _HomePageState extends State<HomePage> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.selectBirthdayScreen),
+            onTap: () => Get.toNamed(ScreenNames.measurementScreen),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,
             width: size.width,
             child: Text(
-              'Next',
+              'Start Measuring',
               style:
-                  textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+                  textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),
           ),
         ),

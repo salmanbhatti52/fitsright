@@ -121,7 +121,7 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
             child: Text(
               'Create new password',
               style:
-                  textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+                  textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),
           ),
         ),

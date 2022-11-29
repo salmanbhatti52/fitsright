@@ -22,10 +22,14 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(), child: _loginScreenBody()),
+            physics: viewInsets > 0
+                ? const BouncingScrollPhysics()
+                : const NeverScrollableScrollPhysics(),
+            child: _loginScreenBody()),
       ),
     );
   }
@@ -43,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Flexible(flex: 1, child: backButton()),
             Expanded(flex: 3, child: appLogo()),
             Flexible(flex: 2, child: greetingText()),
-            Flexible(flex: 4, child: textFeilds()),
+            Flexible(flex: 5, child: textFeilds()),
             _verticalSpace(size.height * 0.035),
             Flexible(flex: 2, child: loginButton()),
             _verticalSpace(size.height * 0.030),
@@ -111,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Text(
                 'Forgot Password?',
                 style: textStyle(FontWeight.w600, const Color(0xFF000000),
-                    size.height * 0.014),
+                    size.height * 0.016),
               ),
             ),
           ],
@@ -134,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Text(
                 'Sign In',
                 style: textStyle(
-                    FontWeight.w700, Colors.white, size.height * 0.016),
+                    FontWeight.w700, Colors.white, size.height * 0.020),
               )),
         ),
       ],
