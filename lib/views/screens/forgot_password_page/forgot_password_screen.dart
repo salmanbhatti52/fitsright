@@ -74,17 +74,22 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Forgot Passsword ',
-          style: textStyle(
-              FontWeight.bold, AppColors.commonBtnColor, size.height * 0.024),
+        Flexible(
+          child: Text(
+            'Forgot Passsword ',
+            style: textStyle(
+                FontWeight.bold, AppColors.commonBtnColor, size.height * 0.024),
+          ),
         ),
         _verticalSpace(size.height * 0.010),
-        Text(
-          textAlign: TextAlign.start,
-          'Enter your registered email/Phone number below\nto receive security code ',
-          style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
+        Flexible(
+          flex: 2,
+          child: Text(
+            textAlign: TextAlign.start,
+            'Enter your registered email/Phone number below to receive security code ',
+            style: textStyle(FontWeight.normal, const Color(0xFF8D99AE),
+                size.height * 0.020),
+          ),
         ),
       ],
     );

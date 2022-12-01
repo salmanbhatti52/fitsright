@@ -39,7 +39,6 @@ class AppRoutes {
     GetPage(
       name: ScreenNames.loginScreen,
       page: () => const LoginScreen(),
-      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: ScreenNames.creatAccountScreen,
@@ -52,7 +51,6 @@ class AppRoutes {
     GetPage(
       name: ScreenNames.splashScreen,
       page: () => const SplashScreen(),
-      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: ScreenNames.createNewPasswordScreen,

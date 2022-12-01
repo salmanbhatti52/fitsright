@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
             left: 0,
             child: UnconstrainedBox(
               child: Container(
-                height: size.height * 0.3,
+                height: size.height * 0.9,
                 width: size.width,
                 decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -158,7 +158,11 @@ class _HomePageState extends State<HomePage> {
           'Skip now and go to Shopping',
           style: textStyle(
               FontWeight.w400, const Color(0xFF8D99AE), size.height * 0.016),
-        )
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        Image.asset(r'assets/pngs/arrowforword.png')
       ],
     );
   }

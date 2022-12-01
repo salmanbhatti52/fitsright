@@ -96,7 +96,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.grey.withOpacity(0.1))),
                   child: Image.asset(r'assets/pngs/home_page_bg.jpg',
-                      fit: BoxFit.scaleDown),
+                      fit: BoxFit.cover),
                 ),
               ),
               _verticalSpace(size.height * 0.009),
@@ -118,7 +118,7 @@ class _AppDrawerState extends State<AppDrawer> {
       children: [
         DrawerListItem(
           onTap: () => Get.toNamed(ScreenNames.measurementScreen),
-          tileIcon: Image.asset(r'assets/pngs/retailersicon.png'),
+          tileIcon: Image.asset(r'assets/pngs/measureicon.png'),
           tileText: 'Measurement',
           bgColor: AppColors.commonBtnColor,
         ),

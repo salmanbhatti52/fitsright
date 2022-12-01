@@ -75,7 +75,7 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
           textAlign: TextAlign.start,
           'Please, enter a new password below\ndifferent from the previous password',
           style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
+              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.020),
         ),
       ],
     );

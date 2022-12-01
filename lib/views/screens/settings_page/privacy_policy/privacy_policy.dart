@@ -45,7 +45,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           );
         }),
         SizedBox(
-          width: size.width * 0.17,
+          width: size.width * 0.18,
         ),
         Flexible(
             child: Text(

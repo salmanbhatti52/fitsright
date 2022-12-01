@@ -40,12 +40,12 @@ class _AddMemberState extends State<AddMember> {
               child: Column(
                 children: [
                   Flexible(child: _titleRow()),
-                  _verticalSpace(size.height * 0.15),
+                  _verticalSpace(size.height * 0.1),
                   Flexible(
                       child: Text(
                     'Enter Email address of the person you want to add as a member ',
                     style: textStyle(FontWeight.w400, const Color(0xff8D99AE),
-                        size.height * 0.018),
+                        size.height * 0.020),
                   )),
                   _verticalSpace(size.height * 0.10),
                   const Flexible(

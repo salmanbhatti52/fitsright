@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fits_right">
+        <uses-permission android:name="android.permission.INTERNET" />
+
    <application
-        android:label="fits_right"
+        android:label="Fits Right"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/appicon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/back_button.dart';
 
@@ -61,7 +60,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
           );
         }),
         SizedBox(
-          width: size.width * 0.17,
+          width: size.width * 0.15,
         ),
         Flexible(
             child: Text(
@@ -88,28 +87,28 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
 
   Widget _yesButton() {
     return MyButton(
-      onTap: () => Get.toNamed(ScreenNames.addMemberScreen),
+      //onTap: () => Get.toNamed(ScreenNames.addMemberScreen),
       radius: 15,
       color: const Color(0xffC70F0F),
       height: size.height * 0.07,
       width: size.width,
       child: Text(
         'Yes',
-        style: textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+        style: textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
       ),
     );
   }
 
   Widget _noButton() {
     return MyButton(
-      onTap: () => Get.toNamed(ScreenNames.addMemberScreen),
+      //  onTap: () => Get.toNamed(ScreenNames.addMemberScreen),
       radius: 15,
       color: AppColors.commonBtnColor,
       height: size.height * 0.07,
       width: size.width,
       child: Text(
         'No',
-        style: textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+        style: textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
       ),
     );
   }

@@ -68,7 +68,7 @@ class _TakeMeasurementState extends State<TakeMeasurement>
           );
         }),
         SizedBox(
-          width: size.width * 0.15,
+          width: size.width * 0.195,
         ),
         Flexible(
             child: Text(
@@ -85,15 +85,17 @@ class _TakeMeasurementState extends State<TakeMeasurement>
       width: size.width,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: const Color(0xFFEDF2F4),
-        ),
+            borderRadius: BorderRadius.circular(15), color: Colors.grey
+            // color: const Color(0xFFEDF2F4),
+            ),
         width: size.width,
+        height: size.height * 0.043,
         child: TabBar(
             indicatorPadding:
                 const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
             controller: _tabController,
             isScrollable: true,
+            enableFeedback: true,
             indicator: RectangularIndicator(
                 color: AppColors.commonBtnColor,
                 bottomLeftRadius: 20,
@@ -101,15 +103,15 @@ class _TakeMeasurementState extends State<TakeMeasurement>
                 topRightRadius: 20,
                 topLeftRadius: 20),
             tabs: const [
-              MeasureTabBar(tabName: 'waist'),
-              MeasureTabBar(tabName: 'hips'),
-              MeasureTabBar(tabName: 'bust'),
-              MeasureTabBar(tabName: 'low hips'),
-              MeasureTabBar(tabName: 'high hips'),
-              MeasureTabBar(tabName: 'collar'),
-              MeasureTabBar(tabName: 'inside leg length'),
-              MeasureTabBar(tabName: 'sleeve length'),
-              MeasureTabBar(tabName: 'height'),
+              MeasureTabBar(tabName: 'Waist'),
+              MeasureTabBar(tabName: 'Wips'),
+              MeasureTabBar(tabName: 'Wust'),
+              MeasureTabBar(tabName: 'Low hips'),
+              MeasureTabBar(tabName: 'High hips'),
+              MeasureTabBar(tabName: 'Collar'),
+              MeasureTabBar(tabName: 'Inside leg length'),
+              MeasureTabBar(tabName: 'Sleeve length'),
+              MeasureTabBar(tabName: 'Height'),
             ]),
       ),
     );

@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Text(
           'Welcome back, Sign in to your account',
           style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
+              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.020),
         ),
       ],
     );

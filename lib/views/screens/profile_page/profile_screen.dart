@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen>
             )),
         const Flexible(
           flex: 1,
-          child: AppBackBtn(icon: Icon(Icons.search)),
+          child: AppBackBtn(icon: Icon(Icons.edit)),
         ),
       ],
     );
@@ -95,9 +95,9 @@ class _ProfileScreenState extends State<ProfileScreen>
                 height: 40,
                 // width: size.width * 0.5,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color(0xFFEDF2F4),
-                ),
+                    borderRadius: BorderRadius.circular(20), color: Colors.grey
+                    // color: const Color(0xFFEDF2F4),
+                    ),
                 child: TabBar(
                   indicator: RectangularIndicator(
                       color: AppColors.commonBtnColor,
@@ -254,7 +254,7 @@ class _ProfileScreenState extends State<ProfileScreen>
     );
   }
 
-  measurementValuesContainer() {
+  Widget measurementValuesContainer() {
     return Container(
       width: size.width,
       height: size.height * 0.17,
@@ -331,13 +331,13 @@ class _ProfileScreenState extends State<ProfileScreen>
             Text(
               'Start a 7 days free Trial',
               style: textStyle(FontWeight.w600, AppColors.commonBtnColor,
-                  size.height * 0.018),
+                  size.height * 0.024),
             ),
             Text(
               'Your Card will be automatically charged if you don’t cancel it within 7 days',
               textAlign: TextAlign.center,
               style: textStyle(FontWeight.w400, const Color(0xff8D99AE),
-                  size.height * 0.014),
+                  size.height * 0.020),
             ),
           ],
         ),

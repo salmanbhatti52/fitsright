@@ -35,7 +35,7 @@ class MyDropDownButton extends StatelessWidget {
               selection,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.inter(fontSize: size.height * 0.014),
+              style: GoogleFonts.inter(fontSize: size.height * 0.015),
             )),
             Flexible(
               child: DropdownButton(

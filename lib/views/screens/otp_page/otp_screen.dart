@@ -73,7 +73,7 @@ class _OtpScreenState extends State<OtpScreen> {
           textAlign: TextAlign.start,
           'We send a code to ( *****@mail.com ).Enter it here to verify your identity ',
           style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
+              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.020),
         ),
       ],
     );

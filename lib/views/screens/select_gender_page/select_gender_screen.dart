@@ -85,9 +85,11 @@ class _SelectGenderState extends State<SelectGender> {
         _verticalSpace(size.height * 0.010),
         Text(
           textAlign: TextAlign.start,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           'Please choose your Gender. This will be used to identify your needs.',
           style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
+              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.021),
         ),
       ],
     );

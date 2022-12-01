@@ -92,9 +92,9 @@ class _ShoppignScreenState extends State<ShoppignScreen>
             child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color(0xFFEDF2F4),
-                ),
+                    borderRadius: BorderRadius.circular(20), color: Colors.grey
+                    //  color: const Color(0xFFEDF2F4),
+                    ),
                 child: TabBar(
                   indicator: RectangularIndicator(
                       color: AppColors.commonBtnColor,

@@ -1,10 +1,10 @@
+import 'package:fits_right/views/common/dialouges/measurement_screen_dialouge.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
-import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
 
@@ -63,7 +63,7 @@ class _MeasurementDetailState extends State<MeasurementDetail>
           );
         }),
         SizedBox(
-          width: size.width * 0.15,
+          width: size.width * 0.195,
         ),
         Flexible(
             child: Text(
@@ -82,19 +82,38 @@ class _MeasurementDetailState extends State<MeasurementDetail>
         Flexible(
             child: SizedBox(
           width: size.width * 0.4,
-          height: size.height * 0.03,
-          child: TabBar(
-            indicator: RectangularIndicator(
-                bottomLeftRadius: 20,
-                bottomRightRadius: 20,
-                topLeftRadius: 20,
-                topRightRadius: 20,
-                color: AppColors.commonBtnColor),
-            controller: _tabController,
-            tabs: const [
-              Text('inches'),
-              Text('cm'),
-            ],
+          height: size.height * 0.043,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18),
+              color: Colors.grey,
+            ),
+            child: TabBar(
+              indicator: RectangularIndicator(
+                  bottomLeftRadius: 20,
+                  bottomRightRadius: 20,
+                  topLeftRadius: 20,
+                  topRightRadius: 20,
+                  horizontalPadding: 2,
+                  verticalPadding: 2,
+                  color: AppColors.commonBtnColor),
+              controller: _tabController,
+              tabs: [
+                Padding(
+                  padding: EdgeInsets.all(0.8),
+                  child: Text(
+                    'Inches',
+                    style: TextStyle(
+                        color: Colors.white, fontSize: size.height * 0.015),
+                  ),
+                ),
+                Text(
+                  'cm',
+                  style: TextStyle(
+                      color: Colors.white, fontSize: size.height * 0.015),
+                ),
+              ],
+            ),
           ),
         ))
       ],
@@ -131,10 +150,14 @@ class _MeasurementDetailState extends State<MeasurementDetail>
                               flex: 1,
                               child:
                                   Image.asset(r'assets/pngs/appediticon.png')),
-                          const Expanded(
+                          Expanded(
                             flex: 2,
                             child: Text(
                               'Waist',
+                              style: GoogleFonts.inter(
+                                  fontSize: size.height * 0.015,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.commonBtnColor),
                             ),
                           ),
                           Expanded(
@@ -142,9 +165,9 @@ class _MeasurementDetailState extends State<MeasurementDetail>
                             child: Text(
                               overflow: TextOverflow.clip,
                               maxLines: 1,
-                              '29.3cm',
+                              '''5'8''',
                               style: textStyle(FontWeight.w500, Colors.black,
-                                  size.height * 0.012),
+                                  size.height * 0.015),
                             ),
                           ),
                         ],
@@ -154,7 +177,7 @@ class _MeasurementDetailState extends State<MeasurementDetail>
                   separatorBuilder: (context, index) =>
                       const Divider(color: Colors.black, thickness: 1),
                 )),
-                const Text('s'),
+                const Text(''),
               ]),
             ),
           )),
@@ -182,13 +205,16 @@ class _MeasurementDetailState extends State<MeasurementDetail>
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.profileScreen),
+            onTap: () => showDialog(
+              context: context,
+              builder: (context) => MeasurementScreenDialog(),
+            ),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,
             width: size.width,
             child: Text(
-              'Next',
+              'Save and next',
               style:
                   textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),

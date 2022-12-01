@@ -20,13 +20,13 @@ class ProfilePicRowItem extends StatelessWidget {
         Text(
           title,
           style: textStyle(
-              FontWeight.w400, const Color(0xff818D92), size.height * 0.013),
+              FontWeight.w400, const Color(0xff818D92), size.height * 0.015),
         ),
         Text(
           overflow: TextOverflow.ellipsis,
           subTitle,
           style: textStyle(
-              FontWeight.w600, const Color(0xff000000), size.height * 0.013),
+              FontWeight.w600, const Color(0xff000000), size.height * 0.015),
         ),
       ],
     );

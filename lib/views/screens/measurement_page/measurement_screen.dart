@@ -57,7 +57,7 @@ class _MeasurementsState extends State<Measurements> {
           );
         }),
         SizedBox(
-          width: size.width * 0.15,
+          width: size.width * 0.195,
         ),
         Flexible(
             child: Text(

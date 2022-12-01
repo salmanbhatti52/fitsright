@@ -83,7 +83,7 @@ class _SelectBirthdayState extends State<SelectBirthday> {
           textAlign: TextAlign.start,
           'Please select your date of birthday',
           style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
+              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.022),
         ),
       ],
     );
@@ -91,18 +91,20 @@ class _SelectBirthdayState extends State<SelectBirthday> {
 
   Widget _selectDob() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Flexible(
             child: MyDropDownButton(
           width: size.width * 0.2,
           selection: 'Date',
         )),
+        SizedBox(width: size.width * 0.025),
         Flexible(
             child: MyDropDownButton(
           width: size.width * 0.3,
           selection: 'Month',
         )),
+        SizedBox(width: size.width * 0.025),
         Flexible(
             child: MyDropDownButton(
           width: size.width * 0.2,

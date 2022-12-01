@@ -1,3 +1,4 @@
+import 'package:fits_right/views/common/widgets/app_drawer.dart';
 import 'package:fits_right/views/common/widgets/app_menu_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,7 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
     size = MediaQuery.of(context).size;
 
     return Scaffold(
+      drawer: const AppDrawer(),
       body: SafeArea(child: SingleChildScrollView(child: _feedbackBody())),
     );
   }
@@ -40,12 +42,12 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
               child: Column(
                 children: [
                   Flexible(child: _titleRow()),
-                  _verticalSpace(size.height * 0.15),
+                  _verticalSpace(size.height * 0.10),
                   Flexible(
                       child: Text(
                     'Please give us your feedback and the team will get back to you.',
                     style: textStyle(FontWeight.w400, const Color(0xff8D99AE),
-                        size.height * 0.018),
+                        size.height * 0.021),
                   )),
                   _verticalSpace(size.height * 0.10),
                   Flexible(
@@ -83,7 +85,7 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
             child: Text(
           'Feedback',
           style: textStyle(
-              FontWeight.w700, AppColors.commonBtnColor, size.height * 0.025),
+              FontWeight.w700, const Color(0xff8D99AE), size.height * 0.025),
         )),
       ],
     );

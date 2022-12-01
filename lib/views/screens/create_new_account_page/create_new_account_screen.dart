@@ -1,3 +1,4 @@
+import 'package:fits_right/routes/screen_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -75,7 +76,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
         Text(
           'Welcome back, Sign in to your account',
           style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.016),
+              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.020),
         ),
       ],
     );
@@ -131,6 +132,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
       children: [
         Flexible(
           child: MyButton(
+              onTap: () => Get.toNamed(ScreenNames.homeScreen),
               radius: 15,
               color: AppColors.commonBtnColor,
               height: size.height * 0.07,
@@ -202,10 +204,13 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
         const SizedBox(
           width: 1,
         ),
-        Text(
-          'Sign In',
-          style: textStyle(
-              FontWeight.bold, AppColors.commonBtnColor, size.height * 0.016),
+        GestureDetector(
+          onTap: () => Get.toNamed(ScreenNames.loginScreen),
+          child: Text(
+            'Sign In',
+            style: textStyle(
+                FontWeight.bold, AppColors.commonBtnColor, size.height * 0.016),
+          ),
         ),
       ],
     );

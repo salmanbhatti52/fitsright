@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class AppBackBtn extends StatelessWidget {
   const AppBackBtn({
     Key? key,
-    this.icon = const Icon(Icons.arrow_back_ios_sharp),
+    this.icon = const Icon(
+      Icons.arrow_back_ios_sharp,
+      size: 16,
+    ),
     this.onTap,
     this.radius,
   }) : super(key: key);

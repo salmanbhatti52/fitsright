@@ -6,7 +6,7 @@ class MeasureTabBar extends StatelessWidget {
   const MeasureTabBar({
     Key? key,
     required this.tabName,
-    this.textColor = Colors.black,
+    this.textColor = Colors.white,
   }) : super(key: key);
 
   final String tabName;

@@ -45,7 +45,7 @@ class AboutScreen extends StatelessWidget {
           );
         }),
         SizedBox(
-          width: size.width * 0.22,
+          width: size.width * 0.25,
         ),
         Flexible(
             child: Text(
