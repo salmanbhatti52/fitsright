@@ -1,8 +1,19 @@
 import 'package:fits_right/routes/screen_names.dart';
+import 'package:fits_right/views/screens/addmember_page/add_member_screen.dart';
+import 'package:fits_right/views/screens/change_password_page/change_password_screen.dart';
+import 'package:fits_right/views/screens/delete_myaccount_page/delete_account_screen.dart';
+import 'package:fits_right/views/screens/feedback_page/feedback_screen.dart';
 import 'package:fits_right/views/screens/home_page/home_page.dart';
 import 'package:fits_right/views/screens/measurement_detail_page/measurement_detail_screen.dart';
 import 'package:fits_right/views/screens/measurement_page/measurement_screen.dart';
+import 'package:fits_right/views/screens/members_page/members_screen.dart';
 import 'package:fits_right/views/screens/policy_page/policy_screen.dart';
+import 'package:fits_right/views/screens/profile_page/profile_screen.dart';
+import 'package:fits_right/views/screens/settings_page/about/about_screen.dart';
+import 'package:fits_right/views/screens/settings_page/privacy_policy/privacy_policy.dart';
+import 'package:fits_right/views/screens/settings_page/settings_screen.dart';
+import 'package:fits_right/views/screens/settings_page/term_and_conditions/term_and_condtions.dart';
+import 'package:fits_right/views/screens/shopping_page/shopping_screen.dart';
 import 'package:fits_right/views/screens/take_measurement_page/take_measurement_screen.dart';
 import 'package:get/get.dart';
 
@@ -70,6 +81,50 @@ class AppRoutes {
     GetPage(
       name: ScreenNames.measurementDetailScreen,
       page: () => const MeasurementDetail(),
+    ),
+    GetPage(
+      name: ScreenNames.profileScreen,
+      page: () => const ProfileScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.shoppingScreen,
+      page: () => const ShoppignScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.memberScreen,
+      page: () => const MembersScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.addMemberScreen,
+      page: () => const AddMember(),
+    ),
+    GetPage(
+      name: ScreenNames.feedBackScreen,
+      page: () => const FeedBackScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.settingsScreen,
+      page: () => const SettingsScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.aboutScreen,
+      page: () => const AboutScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.privacyPolicyScreen,
+      page: () => const PrivacyPolicyScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.termAndCondtionsScreen,
+      page: () => const TermAndConditionsScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.deleteAccountScreen,
+      page: () => const DeleteAccountScreen(),
+    ),
+    GetPage(
+      name: ScreenNames.changePasswordScreen,
+      page: () => const ChangePasswordScreen(),
     ),
   ];
 }

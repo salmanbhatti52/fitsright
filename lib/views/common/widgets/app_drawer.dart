@@ -1,6 +1,8 @@
+import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/drawer_list_item.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -52,6 +54,7 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
           Expanded(
             child: DrawerListItem(
+              onTap: () => Get.toNamed(ScreenNames.loginScreen),
               tileIcon: Image.asset(r'assets/pngs/signouticon.png'),
               tileText: 'Sign Out',
             ),
@@ -84,18 +87,16 @@ class _AppDrawerState extends State<AppDrawer> {
           child: Column(
             children: [
               Flexible(
-                flex: 3,
+                flex: 4,
                 child: Container(
-                  clipBehavior: Clip.antiAlias,
+                  height: 200,
+                  width: 200,
+                  clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.grey.withOpacity(0.1))),
-                  child: SizedBox(
-                    height: 200,
-                    width: 200,
-                    child: Image.asset(r'assets/pngs/home_page_bg.jpg',
-                        fit: BoxFit.fitWidth),
-                  ),
+                  child: Image.asset(r'assets/pngs/home_page_bg.jpg',
+                      fit: BoxFit.scaleDown),
                 ),
               ),
               _verticalSpace(size.height * 0.009),
@@ -116,17 +117,20 @@ class _AppDrawerState extends State<AppDrawer> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         DrawerListItem(
+          onTap: () => Get.toNamed(ScreenNames.measurementScreen),
           tileIcon: Image.asset(r'assets/pngs/retailersicon.png'),
           tileText: 'Measurement',
           bgColor: AppColors.commonBtnColor,
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
+          onTap: () => Get.toNamed(ScreenNames.profileScreen),
           tileIcon: Image.asset(r'assets/pngs/profileIcon.png'),
           tileText: 'Profile',
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
+          onTap: () => Get.toNamed(ScreenNames.memberScreen),
           tileIcon: Image.asset(r'assets/pngs/membersicon.png'),
           tileText: 'My Members',
         ),
@@ -137,11 +141,13 @@ class _AppDrawerState extends State<AppDrawer> {
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
+          onTap: () => Get.toNamed(ScreenNames.feedBackScreen),
           tileIcon: Image.asset(r'assets/pngs/feedbackicon.png'),
           tileText: 'Feedback',
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
+          onTap: () => Get.toNamed(ScreenNames.settingsScreen),
           tileIcon: Image.asset(r'assets/pngs/settingsicon.png'),
           tileText: 'Settings',
         ),

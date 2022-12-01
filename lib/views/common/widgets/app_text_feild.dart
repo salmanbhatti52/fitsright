@@ -10,11 +10,13 @@ class AppTextFeild extends StatelessWidget {
     this.controller,
     this.suffix,
     this.validator,
+    this.maxLines,
   }) : super(key: key);
   final String hint;
   final TextEditingController? controller;
   final Widget? suffix;
   final String? Function(String?)? validator;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class AppTextFeild extends StatelessWidget {
       validator: validator,
       cursorColor: AppColors.commonBtnColor,
       controller: controller,
+      maxLines: maxLines,
       decoration: InputDecoration(
           constraints:
               BoxConstraints(maxWidth: size.width, minWidth: size.width),

@@ -1,11 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppBackBtn extends StatelessWidget {
   const AppBackBtn({
     Key? key,
-    this.icon,
+    this.icon = const Icon(Icons.arrow_back_ios_sharp),
     this.onTap,
     this.radius,
   }) : super(key: key);
@@ -32,7 +31,7 @@ class AppBackBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(height * 0.012),
             border:
                 Border.all(width: 0.5, color: Colors.grey.withOpacity(0.4))),
-        child: const Icon(Icons.arrow_back_ios_sharp),
+        child: (icon),
       ),
     );
   }

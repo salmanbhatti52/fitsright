@@ -35,10 +35,11 @@ class _PolicyScreenState extends State<PolicyScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(flex: 2, child: _titleRow()),
-            Expanded(flex: 9, child: _policyText()),
+            Flexible(flex: 3, child: _titleRow()),
+            Expanded(
+                flex: 16, child: SingleChildScrollView(child: _policyText())),
             Flexible(flex: 1, child: _accept()),
-            Flexible(flex: 1, child: _nextButton()),
+            Flexible(flex: 2, child: _nextButton()),
           ],
         ),
       ),
@@ -68,14 +69,15 @@ class _PolicyScreenState extends State<PolicyScreen> {
   }
 
   Widget _policyText() {
-    return Text(
-      overflow: TextOverflow.ellipsis,
-      maxLines: 100,
-      textAlign: TextAlign.start,
-      '''Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus.Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum. Aenean sapien leo, maximus nec magna vel, gravida auctor quam. Cras congue massa massa, id luctus elit ultricies at. Maecenas in neque justo. 
-Posuere metus.Sed vulputate pellentesque lectus, id luctus turpis interdum vel. Fusce aliquet condimentum arcu id elementum.Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus. Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum. Aenean sapien leo, maximus nec magna vel, gravida auctor quam.Aenean sapien leo, maximus nec magna vel, gravida auctor quam.Aenean sapien leo, maximus nec magna vel, gravida auctor quam.Aenean sapien leo, maximus nec magna vel, gravida auctor quam
-Sed vulputate pellentesque lectus, id luctus turpis interdum vel. Fusce aliquet condimentum arcu id elementum.Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus. Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum. Aenean sapien leo, maximus nec magna vel, gravida auctor quam Aenean sapien leo, maximus nec magna vel, gravida auctor quam....''',
-      style: textStyle(FontWeight.w400, Colors.black, size.height * 0.016),
+    return SizedBox(
+      height: size.height * 0.9,
+      child: Text(
+        overflow: TextOverflow.ellipsis,
+        maxLines: 200,
+        textAlign: TextAlign.start,
+        '''Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus.Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum. Aenean sapien leo, maximus nec magna vel, gravida auctor quam. Cras congue massa massa, id luctus elit ultricies at. Maecenas in neque justo.Posuere metus.Sed vulputate pellentesque lectus, id luctus turpis interdum vel. Fusce aliquet condimentum arcu id elementum.Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus. Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum. Aenean sapien leo, maximus nec magna vel, gravida auctor quam.Aenean sapien leo, maximus nec magna vel, gravida auctor quam.Aenean sapien leo, maximus nec magna vel, gravida auctor quam.Aenean sapien leo, maximus nec magna vel, gravida auctor quam Sed vulputate pellentesque lectus, id luctus turpis interdum vel. Fusce aliquet condimentum arcu id elementum.Aliquam a dui vel justo fringilla euismod id id enim. Nunc non semper tellus. Pellentesque vitae tellus non dui fermentum hendrerit. In vel imperdiet mi. Aliquam erat volutpat. Cras dapibus orci eu eros tempus efficitur. Nulla rhoncus arcu nec dictum condimentum. Aenean sapien leo, maximus nec magna vel, gravida auctor quam Aenean sapien leo, maximus nec magna vel, gravida auctor quam....''',
+        style: textStyle(FontWeight.w400, Colors.black, size.height * 0.019),
+      ),
     );
   }
 

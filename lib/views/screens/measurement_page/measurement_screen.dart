@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
+import '../../common/widgets/rectangle_image_container.dart';
 
 class Measurements extends StatefulWidget {
   const Measurements({super.key});
@@ -76,10 +77,10 @@ class _MeasurementsState extends State<Measurements> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // Flexible(
-        //     child: RectangleimageContainer(
-        //         picture: SvgPicture.asset(r'assets/svgs/measurepgsvg2.svg'),
-        //         gender: 'Manual')),
+        Flexible(
+            child: RectangleimageContainer(
+                picture: Image.asset(r'assets/pngs/manual.png'),
+                gender: 'Manual')),
         Flexible(
             child: Container(
           height: size.height * 0.50,
@@ -123,7 +124,7 @@ class _MeasurementsState extends State<Measurements> {
             child: Text(
               'Next',
               style:
-                  textStyle(FontWeight.w700, Colors.white, size.height * 0.016),
+                  textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),
           ),
         ),
