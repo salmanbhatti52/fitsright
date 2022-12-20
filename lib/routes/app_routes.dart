@@ -1,7 +1,7 @@
 import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/views/screens/addmember_page/add_member_screen.dart';
-import 'package:fits_right/views/screens/change_password_page/change_password_screen.dart';
-import 'package:fits_right/views/screens/delete_myaccount_page/delete_account_screen.dart';
+import 'package:fits_right/views/screens/settings_page/change_password/change_password_screen.dart';
+import 'package:fits_right/views/screens/settings_page/delete_my_account/delete_account_screen.dart';
 import 'package:fits_right/views/screens/feedback_page/feedback_screen.dart';
 import 'package:fits_right/views/screens/home_page/home_page.dart';
 import 'package:fits_right/views/screens/measurement_detail_page/measurement_detail_screen.dart';
@@ -16,7 +16,6 @@ import 'package:fits_right/views/screens/settings_page/term_and_conditions/term_
 import 'package:fits_right/views/screens/shopping_page/shopping_screen.dart';
 import 'package:fits_right/views/screens/take_measurement_page/take_measurement_screen.dart';
 import 'package:get/get.dart';
-
 import '../views/screens/create_new_account_page/create_new_account_screen.dart';
 import '../views/screens/create_new_password_page/create_new_password_screen.dart';
 import '../views/screens/forgot_password_page/forgot_password_screen.dart';
