@@ -100,7 +100,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
   Widget _updateButton() {
     return MyButton(
-      onTap: () => Get.toNamed(ScreenNames.addMemberScreen),
+      onTap: () => Get.toNamed(ScreenNames.settingsScreen),
       radius: 15,
       color: AppColors.commonBtnColor,
       height: size.height * 0.07,
