@@ -22,7 +22,7 @@ class MeasureTabBarView extends StatelessWidget {
           children: [
             Flexible(
                 child: SizedBox(
-              height: size.height * 0.07,
+              height: size.height * 0.01,
             )),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -50,7 +50,7 @@ class MeasureTabBarView extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Inches',
+                    'inches',
                     style: textStyle(
                         FontWeight.w400, Colors.white, size.height * 0.014),
                   ),
@@ -61,13 +61,14 @@ class MeasureTabBarView extends StatelessWidget {
             Container(
                 decoration: BoxDecoration(
                     //  color: Colors.blue,
-                    border: Border.all(width: 1, color: Colors.grey),
+                    border:
+                        Border.all(width: 1, color: const Color(0xFFBDC6D1)),
                     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Cm',
-                    style: textStyle(FontWeight.w400, AppColors.commonBtnColor,
+                    'cm',
+                    style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
                         size.height * 0.014),
                   ),
                 )),

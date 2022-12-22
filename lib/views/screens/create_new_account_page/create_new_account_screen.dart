@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../utils/app_colors.dart';
 import '../../common/widgets/app_text_feild.dart';
 import '../../common/widgets/back_button.dart';
@@ -21,9 +20,13 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
+        physics: viewInsets > 0
+            ? const BouncingScrollPhysics()
+            : const NeverScrollableScrollPhysics(),
         child: _createNewAccountBody(),
       )),
     );
@@ -92,9 +95,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
           height: size.height * 0.15,
           width: size.width - size.width / 2,
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
-
-              //   borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: const Color(0xFFBDC6D1)),
               shape: BoxShape.circle),
           child: SizedBox(
               height: size.height * 0.05,

@@ -1,9 +1,8 @@
+import 'package:fits_right/views/common/dialouges/add_member_screen_dialouge.dart';
 import 'package:fits_right/views/common/widgets/app_text_feild.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
@@ -21,9 +20,14 @@ class _AddMemberState extends State<AddMember> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-
+    var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
-      body: SafeArea(child: SingleChildScrollView(child: _addMembersBody())),
+      body: SafeArea(
+          child: SingleChildScrollView(
+              physics: viewInsets > 0
+                  ? const BouncingScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
+              child: _addMembersBody())),
     );
   }
 
@@ -50,7 +54,7 @@ class _AddMemberState extends State<AddMember> {
                   _verticalSpace(size.height * 0.10),
                   const Flexible(
                       child: AppTextFeild(
-                    hint: 'tommyjason@gmail',
+                    hint: 'Enter Email',
                   )),
                 ],
               ),
@@ -94,7 +98,10 @@ class _AddMemberState extends State<AddMember> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.addMemberScreen),
+            onTap: () => showDialog(
+              context: context,
+              builder: (context) => const AddMemeberScreenDialog(),
+            ),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

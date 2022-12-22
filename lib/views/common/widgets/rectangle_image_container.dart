@@ -19,7 +19,7 @@ class RectangleimageContainer extends StatelessWidget {
       height: size.height * 0.50,
       width: size.width * 0.43,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: const Color(0xFFBDC6D1)),
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(10)),
       child: Column(
@@ -47,3 +47,4 @@ class RectangleimageContainer extends StatelessWidget {
     );
   }
 }
+

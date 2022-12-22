@@ -16,15 +16,16 @@ class MyDropDownButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var item1 = const DropdownMenuItem(
-        child: Text(
-      '',
-    ));
+      child: Text(
+        '',
+      ),
+    );
     return Container(
       height: size.height * 0.055,
       width: width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: Colors.grey.withOpacity(0.3))),
+          border: Border.all(color: const Color(0xFFBDC6D1))),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -35,7 +36,9 @@ class MyDropDownButton extends StatelessWidget {
               selection,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.inter(fontSize: size.height * 0.015),
+              style: GoogleFonts.inter(
+                  fontSize: size.height * 0.015,
+                  color: const Color(0xFF9CA3AF)),
             )),
             Flexible(
               child: DropdownButton(
