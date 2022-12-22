@@ -1,4 +1,3 @@
-import 'package:fits_right/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppBackBtn extends StatelessWidget {
@@ -29,7 +28,8 @@ class AppBackBtn extends StatelessWidget {
         height: height * 0.04,
         width: width * 0.089,
         decoration: BoxDecoration(
-            color: AppColors.backBtnColor.withOpacity(0.1),
+            color: Colors.white,
+            // color: AppColors.backBtnColor.withOpacity(0.1),
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(height * 0.012),
             border:

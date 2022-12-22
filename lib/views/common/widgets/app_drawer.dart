@@ -2,6 +2,7 @@ import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/drawer_list_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,7 +56,7 @@ class _AppDrawerState extends State<AppDrawer> {
           Expanded(
             child: DrawerListItem(
               onTap: () => Get.toNamed(ScreenNames.loginScreen),
-              tileIcon: Image.asset(r'assets/pngs/signouticon.png'),
+              tileIcon: SvgPicture.asset('assets/svgs/signouticon.svg'),
               tileText: 'Sign Out',
             ),
           ),
@@ -95,7 +96,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.grey.withOpacity(0.1))),
-                  child: Image.asset(r'assets/pngs/home_page_bg.jpg',
+                  child: Image.asset('assets/pngs/home_page_bg.jpg',
                       fit: BoxFit.cover),
                 ),
               ),
@@ -118,37 +119,37 @@ class _AppDrawerState extends State<AppDrawer> {
       children: [
         DrawerListItem(
           onTap: () => Get.toNamed(ScreenNames.measurementScreen),
-          tileIcon: Image.asset(r'assets/pngs/measureicon.png'),
+          tileIcon: SvgPicture.asset('assets/svgs/measureicon.svg'),
           tileText: 'Measurement',
           bgColor: AppColors.commonBtnColor,
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
           onTap: () => Get.toNamed(ScreenNames.profileScreen),
-          tileIcon: Image.asset(r'assets/pngs/profileIcon.png'),
+          tileIcon: SvgPicture.asset('assets/svgs/profileicon.svg'),
           tileText: 'Profile',
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
           onTap: () => Get.toNamed(ScreenNames.memberScreen),
-          tileIcon: Image.asset(r'assets/pngs/membersicon.png'),
+          tileIcon: SvgPicture.asset('assets/svgs/membersicon.svg'),
           tileText: 'My Members',
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
-          tileIcon: Image.asset(r'assets/pngs/retailersicon.png'),
+          tileIcon: SvgPicture.asset('assets/svgs/retailersicon.svg'),
           tileText: 'Browse by Retailers',
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
           onTap: () => Get.toNamed(ScreenNames.feedBackScreen),
-          tileIcon: Image.asset(r'assets/pngs/feedbackicon.png'),
+          tileIcon: SvgPicture.asset('assets/svgs/feedbackicon.svg'),
           tileText: 'Feedback',
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
           onTap: () => Get.toNamed(ScreenNames.settingsScreen),
-          tileIcon: Image.asset(r'assets/pngs/settingsicon.png'),
+          tileIcon: SvgPicture.asset('assets/svgs/settingsicon.svg'),
           tileText: 'Settings',
         ),
       ],

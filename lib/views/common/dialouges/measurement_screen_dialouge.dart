@@ -20,13 +20,29 @@ class MeasurementScreenDialog extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Flexible(child: SizedBox(height: size.height * 0.04)),
                 Flexible(
-                    child: Text(
-                  'Please wait...',
-                  style: textStyle(FontWeight.w700, AppColors.commonBtnColor,
-                      size.height * 0.026),
-                )),
-                Flexible(child: SvgPicture.asset(r'assets/svgs/applogo.svg')),
+                  child: Text(
+                    'Please wait...',
+                    style: textStyle(FontWeight.w700, AppColors.commonBtnColor,
+                        size.height * 0.026),
+                  ),
+                ),
+                Flexible(child: SizedBox(height: size.height * 0.03)),
+                Flexible(child: SvgPicture.asset('assets/svgs/applogo.svg')),
+                Flexible(child: SizedBox(height: size.height * 0.04)),
+                Flexible(
+                  child: Text(
+                    'Find the best brands, fit for \n your size.',
+                    style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
+                        size.height * 0.016),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Flexible(child: SizedBox(height: size.height * 0.4)),
+                Flexible(
+                    child: SvgPicture.asset(
+                        'assets/svgs/measurementdialogbox.svg')),
               ],
             )),
       ),

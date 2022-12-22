@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class AppMenuButton extends StatelessWidget {
   const AppMenuButton({
@@ -25,7 +26,7 @@ class AppMenuButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(height * 0.012),
             border:
                 Border.all(width: 0.5, color: Colors.grey.withOpacity(0.4))),
-        child: const Icon(Icons.menu),
+        child: SvgPicture.asset('assets/svgs/menuicon.svg'),
       ),
     );
   }
