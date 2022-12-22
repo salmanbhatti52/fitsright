@@ -3,10 +3,10 @@ import 'package:fits_right/views/common/widgets/app_menu_button.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/profile_pic_screen_row_items.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
-
 import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
@@ -76,9 +76,10 @@ class _ProfileScreenState extends State<ProfileScreen>
               style: textStyle(FontWeight.w700, AppColors.commonBtnColor,
                   size.height * 0.025),
             )),
-        const Flexible(
+        Flexible(
           flex: 1,
-          child: AppBackBtn(icon: Icon(Icons.edit)),
+          child: AppBackBtn(
+              icon: SvgPicture.asset('assets/svgs/profileediticon.svg')),
         ),
       ],
     );
@@ -163,7 +164,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           decoration: const BoxDecoration(
               shape: BoxShape.circle, color: Colors.transparent),
           child: Image.asset(
-            r'assets/pngs/home_page_bg.jpg',
+            'assets/pngs/home_page_bg.jpg',
             fit: BoxFit.cover,
           ),
         ),
@@ -187,17 +188,33 @@ class _ProfileScreenState extends State<ProfileScreen>
                     size.height * 0.020),
               )),
               Flexible(
-                  child: SizedBox(
-                width: size.width * 0.7,
-                height: size.height * 0.05,
-                child: const ListTile(
-                  horizontalTitleGap: 0,
-                  leading: Icon(
-                    Icons.email,
+                child: SizedBox(
+                  width: size.width * 0.8,
+                  height: size.height * 0.05,
+                  child: Flexible(
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: SizedBox(
+                            width: size.width * 0.16,
+                          ),
+                        ),
+                        SvgPicture.asset('assets/svgs/profileemailicon.svg'),
+                        Flexible(
+                          child: SizedBox(
+                            width: size.width * 0.03,
+                          ),
+                        ),
+                        Text(
+                          'wadewarren@example.com',
+                          style: textStyle(FontWeight.w500,
+                              const Color(0xFF818D92), size.height * 0.012),
+                        ),
+                      ],
+                    ),
                   ),
-                  title: Text('wadewarren@example.com'),
                 ),
-              )),
+              ),
             ],
           ),
         ),
@@ -271,19 +288,20 @@ class _ProfileScreenState extends State<ProfileScreen>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
                 ProfilePicRowItem(title: 'Waist', subTitle: '29 cm'),
-                ProfilePicRowItem(title: 'Waist', subTitle: '29 cm'),
-                ProfilePicRowItem(title: 'Waist', subTitle: '29 cm'),
-                ProfilePicRowItem(title: 'Waist', subTitle: '29 cm'),
-                ProfilePicRowItem(title: 'Waist', subTitle: '29 cm'),
+                ProfilePicRowItem(title: 'Hip', subTitle: '29 cm'),
+                ProfilePicRowItem(title: 'Bust', subTitle: '29 cm'),
+                ProfilePicRowItem(title: 'Low Hip', subTitle: '29 cm'),
+                ProfilePicRowItem(title: 'High Hip', subTitle: '29 cm'),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
                 ProfilePicRowItem(title: 'Collar', subTitle: '165 cm'),
-                ProfilePicRowItem(title: 'Collar', subTitle: '165 cm'),
-                ProfilePicRowItem(title: 'Collar', subTitle: '165 cm'),
-                ProfilePicRowItem(title: 'Collar', subTitle: '165 cm'),
+                ProfilePicRowItem(
+                    title: 'Inside Leg Length', subTitle: '165 cm'),
+                ProfilePicRowItem(title: 'Sleeve Length', subTitle: '165 cm'),
+                ProfilePicRowItem(title: 'Height', subTitle: '165 cm'),
               ],
             ),
           ],
@@ -333,11 +351,14 @@ class _ProfileScreenState extends State<ProfileScreen>
               style: textStyle(FontWeight.w600, AppColors.commonBtnColor,
                   size.height * 0.024),
             ),
+            SizedBox(
+              height: size.height * 0.015,
+            ),
             Text(
-              'Your Card will be automatically charged if you don’t cancel it within 7 days',
+              'Your Card will be automatically charged if you don’t \n cancel it within 7 days',
               textAlign: TextAlign.center,
               style: textStyle(FontWeight.w400, const Color(0xff8D99AE),
-                  size.height * 0.020),
+                  size.height * 0.016),
             ),
           ],
         ),

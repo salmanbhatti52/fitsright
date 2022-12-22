@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../routes/screen_names.dart';
 import '../../../../utils/app_colors.dart';
 import '../../common/widgets/back_button.dart';
@@ -78,7 +77,7 @@ class _SelectGenderState extends State<SelectGender> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'What’s your gender?',
+          "What’s your gender?",
           style: textStyle(
               FontWeight.bold, AppColors.commonBtnColor, size.height * 0.024),
         ),
