@@ -1,4 +1,4 @@
-import 'package:fits_right/views/common/widgets/rectangle_image_container.dart';
+import 'package:fits_right/views/common/widgets/gender_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -43,7 +43,7 @@ class _SelectGenderState extends State<SelectGender> {
             Flexible(flex: 3, child: _mainSvg()),
             Flexible(flex: 1, child: _infoText()),
             _verticalSpace(size.height * 0.05),
-            Flexible(flex: 2, child: _selectGender()),
+            const Flexible(flex: 2, child: GenderSelectWidget()),
             _verticalSpace(size.height * 0.05),
             Flexible(flex: 1, child: _nextButton()),
           ],
@@ -90,24 +90,6 @@ class _SelectGenderState extends State<SelectGender> {
           style: textStyle(
               FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.021),
         ),
-      ],
-    );
-  }
-
-  Widget _selectGender() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Flexible(
-          child: RectangleimageContainer(
-              picture: SvgPicture.asset(r'assets/svgs/selectgenderpgsvg2.svg'),
-              gender: 'Male'),
-        ),
-        Flexible(
-            child: RectangleimageContainer(
-                picture:
-                    SvgPicture.asset(r'assets/svgs/selectgenderpgsvg3.svg'),
-                gender: ' Female')),
       ],
     );
   }
