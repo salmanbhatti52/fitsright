@@ -1,8 +1,8 @@
 import 'package:fits_right/views/common/widgets/profile_pic_screen_row_items.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/app_menu_button.dart';
@@ -52,11 +52,14 @@ class _MembersScreenState extends State<MembersScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Builder(builder: (context) {
-          return AppMenuButton(
-            onTap: () => Scaffold.of(context).openDrawer(),
-          );
-        }),
+        Flexible(
+          flex: 1,
+          child: Builder(builder: (context) {
+            return AppMenuButton(
+              onTap: () => Scaffold.of(context).openDrawer(),
+            );
+          }),
+        ),
         SizedBox(
           width: size.width * 0.20,
         ),
@@ -74,7 +77,7 @@ class _MembersScreenState extends State<MembersScreen> {
     return SizedBox(
       width: size.width,
       height: size.height,
-      child: ListView.builder(itemCount: 3, itemBuilder: _itemBuilder),
+      child: ListView.builder(itemCount: 2, itemBuilder: _itemBuilder),
     );
   }
 
@@ -128,13 +131,12 @@ class _MembersScreenState extends State<MembersScreen> {
         ),
         Row(
           children: [
-            Image.asset(
-              r'assets/pngs/appdeleteicon.png',
+            SvgPicture.asset(
+              'assets/svgs/appdeleteicon.svg',
             ),
             const SizedBox(width: 4),
-            Image.asset(
-              r'assets/pngs/appediticon.png',
-              color: AppColors.commonBtnColor,
+            SvgPicture.asset(
+              'assets/svgs/appediticon.svg',
             ),
           ],
         ),
@@ -146,11 +148,11 @@ class _MembersScreenState extends State<MembersScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: const [
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
+        ProfilePicRowItem(title: 'Wasit', subTitle: '29 cm'),
+        ProfilePicRowItem(title: 'Hip', subTitle: '29 cm'),
+        ProfilePicRowItem(title: 'Bust', subTitle: '29 cm'),
+        ProfilePicRowItem(title: 'Low Hip', subTitle: '29 cm'),
+        ProfilePicRowItem(title: 'High Hip', subTitle: '29 cm'),
       ],
     );
   }
@@ -159,11 +161,10 @@ class _MembersScreenState extends State<MembersScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: const [
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
-        ProfilePicRowItem(title: 'Wasit', subTitle: '30.32 cm'),
+        ProfilePicRowItem(title: 'Collar', subTitle: '165 cm'),
+        ProfilePicRowItem(title: 'Inside Leg Length', subTitle: '165 cm'),
+        ProfilePicRowItem(title: 'Sleeve Length', subTitle: '165 cm'),
+        ProfilePicRowItem(title: 'Height', subTitle: '165 cm'),
       ],
     );
   }

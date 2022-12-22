@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
@@ -99,8 +98,9 @@ class _MeasurementsState extends State<Measurements> {
                 alignment: Alignment.center,
                 color: Colors.black.withOpacity(0.5),
                 child: Text(
-                  'comming soon',
+                  'Coming \n Soon',
                   style: GoogleFonts.inter(color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],

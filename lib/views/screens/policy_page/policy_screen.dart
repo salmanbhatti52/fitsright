@@ -3,7 +3,6 @@ import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../routes/screen_names.dart';
 import '../../common/widgets/my_button.dart';
 

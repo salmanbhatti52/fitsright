@@ -2,10 +2,8 @@ import 'package:fits_right/routes/screen_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../utils/app_colors.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
 
@@ -22,8 +20,14 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
-      body: SafeArea(child: SingleChildScrollView(child: _otpScreenBody())),
+      body: SafeArea(
+          child: SingleChildScrollView(
+              physics: viewInsets > 0
+                  ? const BouncingScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
+              child: _otpScreenBody())),
     );
   }
 
