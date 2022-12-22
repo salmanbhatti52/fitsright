@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
-import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
@@ -25,7 +24,7 @@ class _TakeMeasurementState extends State<TakeMeasurement>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 9, vsync: this);
+    _tabController = TabController(length: 10, vsync: this);
   }
 
   @override
@@ -85,33 +84,34 @@ class _TakeMeasurementState extends State<TakeMeasurement>
       width: size.width,
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15), color: Colors.grey
-            // color: const Color(0xFFEDF2F4),
-            ),
+          borderRadius: BorderRadius.circular(18),
+          color: Colors.grey,
+        ),
         width: size.width,
         height: size.height * 0.043,
         child: TabBar(
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.black,
             indicatorPadding:
                 const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
             controller: _tabController,
             isScrollable: true,
             enableFeedback: true,
-            indicator: RectangularIndicator(
-                color: AppColors.commonBtnColor,
-                bottomLeftRadius: 20,
-                bottomRightRadius: 20,
-                topRightRadius: 20,
-                topLeftRadius: 20),
+            indicator: BoxDecoration(
+              color: AppColors.commonBtnColor,
+              borderRadius: BorderRadius.circular(30.0),
+            ),
             tabs: const [
-              MeasureTabBar(tabName: 'Waist'),
-              MeasureTabBar(tabName: 'Wips'),
-              MeasureTabBar(tabName: 'Wust'),
-              MeasureTabBar(tabName: 'Low hips'),
-              MeasureTabBar(tabName: 'High hips'),
-              MeasureTabBar(tabName: 'Collar'),
-              MeasureTabBar(tabName: 'Inside leg length'),
+              MeasureTabBar(tabName: 'Neck'),
               MeasureTabBar(tabName: 'Sleeve length'),
-              MeasureTabBar(tabName: 'Height'),
+              MeasureTabBar(tabName: 'Chest/bust'),
+              MeasureTabBar(tabName: 'Waist'),
+              MeasureTabBar(tabName: 'High hip'),
+              MeasureTabBar(tabName: 'Low hip'),
+              MeasureTabBar(tabName: 'Belly'),
+              MeasureTabBar(tabName: 'Calf'),
+              MeasureTabBar(tabName: 'Thigh'),
+              MeasureTabBar(tabName: 'Inside leg length'),
             ]),
       ),
     );
@@ -120,25 +120,27 @@ class _TakeMeasurementState extends State<TakeMeasurement>
   Widget _tabBarView() {
     return TabBarView(controller: _tabController, children: const [
       MeasureTabBarView(
-          bodyPart: 'Waist', bodyPartModel: (r'assets/pngs/waist.png')),
+          bodyPart: 'Neck', bodyPartModel: ('assets/pngs/neck.png')),
       MeasureTabBarView(
-          bodyPart: 'hips', bodyPartModel: (r'assets/pngs/hip.png')),
+          bodyPart: 'Sleeve length',
+          bodyPartModel: ('assets/pngs/sleevelength.png')),
       MeasureTabBarView(
-          bodyPart: 'bust', bodyPartModel: (r'assets/pngs/bust.png')),
+          bodyPart: 'Chest/bust', bodyPartModel: ('assets/pngs/bust.png')),
       MeasureTabBarView(
-          bodyPart: 'lower hips', bodyPartModel: (r'assets/pngs/lowhip.png')),
+          bodyPart: 'Waists', bodyPartModel: ('assets/pngs/waist.png')),
       MeasureTabBarView(
-          bodyPart: 'high hips', bodyPartModel: (r'assets/pngs/highhip.png')),
+          bodyPart: 'High hip', bodyPartModel: ('assets/pngs/highhip.png')),
       MeasureTabBarView(
-          bodyPart: 'collar', bodyPartModel: (r'assets/pngs/collar.png')),
+          bodyPart: 'Low hip', bodyPartModel: ('assets/pngs/lowhip.png')),
       MeasureTabBarView(
-          bodyPart: 'inside leg lenght',
-          bodyPartModel: (r'assets/pngs/insideleglength.png')),
+          bodyPart: 'Belly', bodyPartModel: ('assets/pngs/belly.png')),
       MeasureTabBarView(
-          bodyPart: 'sleeve length',
-          bodyPartModel: (r'assets/pngs/slevelength.png')),
+          bodyPart: 'Calf', bodyPartModel: ('assets/pngs/calf.png')),
       MeasureTabBarView(
-          bodyPart: 'height', bodyPartModel: (r'assets/pngs/height.png'))
+          bodyPart: 'Thigh', bodyPartModel: ('assets/pngs/thigh.png')),
+      MeasureTabBarView(
+          bodyPart: 'Inside leg length',
+          bodyPartModel: ('assets/pngs/insideleglength.png'))
     ]);
   }
 

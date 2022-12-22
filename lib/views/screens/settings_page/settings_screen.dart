@@ -3,9 +3,9 @@ import 'package:fits_right/views/common/widgets/app_drawer.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/settings_list_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/app_menu_button.dart';
 
@@ -76,35 +76,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
       children: [
         SettingsListItem(
             onTap: () => Get.toNamed(ScreenNames.termAndCondtionsScreen),
-            trailing: const AppBackBtn(
-                icon: Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.black,
-            )),
+            trailing: AppBackBtn(
+                icon: SvgPicture.asset('assets/svgs/arrow_forward.svg')),
             title: 'Terms & Conditions '),
         _verticalSpace(),
         SettingsListItem(
             onTap: () => Get.toNamed(ScreenNames.privacyPolicyScreen),
-            trailing: const AppBackBtn(
-                icon: Icon(Icons.arrow_forward_ios, color: Colors.black)),
+            trailing: AppBackBtn(
+                icon: SvgPicture.asset('assets/svgs/arrow_forward.svg')),
             title: 'Privacy Policy '),
         _verticalSpace(),
         SettingsListItem(
             onTap: () => Get.toNamed(ScreenNames.aboutScreen),
-            trailing: const AppBackBtn(
-                icon: Icon(Icons.arrow_forward_ios, color: Colors.black)),
+            trailing: AppBackBtn(
+                icon: SvgPicture.asset('assets/svgs/arrow_forward.svg')),
             title: 'About us'),
         _verticalSpace(),
         SettingsListItem(
             onTap: () => Get.toNamed(ScreenNames.changePasswordScreen),
-            trailing: const AppBackBtn(
-                icon: Icon(Icons.arrow_forward_ios, color: Colors.black)),
+            trailing: AppBackBtn(
+                icon: SvgPicture.asset('assets/svgs/arrow_forward.svg')),
             title: 'Change Password '),
         _verticalSpace(),
         SettingsListItem(
             onTap: () => Get.toNamed(ScreenNames.deleteAccountScreen),
-            trailing: const AppBackBtn(
-                icon: Icon(Icons.arrow_forward_ios, color: Colors.black)),
+            trailing: AppBackBtn(
+                icon: SvgPicture.asset('assets/svgs/arrow_forward.svg')),
             title: 'Delete my Account '),
       ],
     );

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
-
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/app_menu_button.dart';
 import '../../common/widgets/back_button.dart';
@@ -145,22 +144,25 @@ class _ShoppignScreenState extends State<ShoppignScreen>
     return TabBarView(controller: _tabController, children: [
       SizedBox(
         child: GridView.builder(
+          physics: const BouncingScrollPhysics(),
           itemCount: 28,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4, crossAxisSpacing: 5, mainAxisSpacing: 5),
-          itemBuilder: (context, index) => Container(
-            alignment: Alignment.center,
-            height: 100,
-            width: 100,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.black,
-            ),
-            child: SvgPicture.asset(
-              r'assets/svgs/addidaslogo.svg',
-              fit: BoxFit.scaleDown,
-            ),
-          ),
+          itemBuilder: (context, index) {
+            return Container(
+              alignment: Alignment.center,
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black,
+              ),
+              child: SvgPicture.asset(
+                'assets/svgs/addidaslogo.svg',
+                fit: BoxFit.scaleDown,
+              ),
+            );
+          },
         ),
       ),
       Container(),
