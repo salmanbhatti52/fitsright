@@ -105,7 +105,14 @@ class _LoginScreenState extends State<LoginScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Flexible(child: AppTextFeild(hint: 'Email / Phone Number')),
-        const Flexible(child: AppTextFeild(hint: 'Password')),
+        const Flexible(
+            child: AppTextFeild(
+          hint: 'Password',
+          suffix: Icon(
+            Icons.remove_red_eye_sharp,
+            color: Colors.grey,
+          ),
+        )),
         Flexible(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.end,

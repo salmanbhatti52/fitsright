@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../utils/app_colors.dart';
 import '../../common/widgets/back_button.dart';
 
@@ -21,9 +20,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-
+    var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
-      body: SafeArea(child: SingleChildScrollView(child: forgotScreenBody())),
+      body: SafeArea(
+          child: SingleChildScrollView(
+              physics: viewInsets > 0
+                  ? const BouncingScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
+              child: forgotScreenBody())),
     );
   }
 

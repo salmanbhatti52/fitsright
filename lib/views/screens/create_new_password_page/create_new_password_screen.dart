@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../utils/app_colors.dart';
 import '../../common/widgets/app_text_feild.dart';
 import '../../common/widgets/back_button.dart';
@@ -20,9 +19,13 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
+        physics: viewInsets > 0
+            ? const BouncingScrollPhysics()
+            : const NeverScrollableScrollPhysics(),
         child: _createNewPassWordbody(),
       )),
     );
@@ -87,11 +90,11 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
       children: [
         const Flexible(
             child: AppTextFeild(
-          hint: '',
+          hint: 'New Password',
           suffix: Icon(
             Icons.remove_red_eye_sharp,
             size: 24,
-            color: Colors.black,
+            color: Colors.grey,
           ),
         )),
         _verticalSpace(size.height * 0.030),
@@ -101,7 +104,7 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
           suffix: Icon(
             Icons.remove_red_eye_sharp,
             size: 24,
-            color: Colors.black,
+            color: Colors.grey,
           ),
         )),
       ],

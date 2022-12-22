@@ -2,9 +2,9 @@ import 'package:fits_right/views/common/widgets/app_drawer.dart';
 import 'package:fits_right/views/common/widgets/app_menu_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(
           width: 5,
         ),
-        Image.asset(r'assets/pngs/arrowforword.png')
+        SvgPicture.asset('assets/svgs/arrowforword.svg')
       ],
     );
   }

@@ -1,10 +1,8 @@
+import 'package:fits_right/views/common/dialouges/feedback_screen_dialouge.dart';
 import 'package:fits_right/views/common/widgets/app_drawer.dart';
 import 'package:fits_right/views/common/widgets/app_menu_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
 
@@ -21,7 +19,6 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-
     return Scaffold(
       drawer: const AppDrawer(),
       body: SafeArea(child: SingleChildScrollView(child: _feedbackBody())),
@@ -97,7 +94,10 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.addMemberScreen),
+            onTap: () => showDialog(
+              context: context,
+              builder: (context) => const FeedBackScreenDialog(),
+            ),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,
@@ -127,7 +127,7 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
     return TextFormField(
       maxLines: 40,
       decoration: InputDecoration(
-          hintText: 'FeedBack',
+          hintText: 'Feedback',
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(color: Color(0xffBDC6D1))),
