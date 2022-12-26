@@ -17,7 +17,7 @@ class _GenderSelectWidgetState extends State<GenderSelectWidget> {
     super.initState();
 
     genderData.add(
-        GenderRadioModel(true, 'assets/svgs/selectgenderpgsvg2.svg', 'Male'));
+        GenderRadioModel(false, 'assets/svgs/selectgenderpgsvg2.svg', 'Male'));
     genderData.add(GenderRadioModel(
         false, 'assets/svgs/selectgenderpgsvg3.svg', 'Female'));
   }
@@ -32,7 +32,9 @@ class _GenderSelectWidgetState extends State<GenderSelectWidget> {
         return InkWell(
           onTap: () {
             setState(() {
-              genderData.forEach((element) => element.isSelectedGender = false);
+              for (var element in genderData) {
+                element.isSelectedGender = false;
+              }
               genderData[index].isSelectedGender = true;
             });
           },
@@ -74,7 +76,11 @@ class GenderRadioItem extends StatelessWidget {
                 Text(
                   _item.text,
                   style: textStyle(
-                      FontWeight.w600, Colors.black, size.height * 0.020),
+                      FontWeight.w600,
+                      _item.isSelectedGender
+                          ? const Color(0xFF3541A5)
+                          : const Color(0xFF000000),
+                      size.height * 0.020),
                 )
               ],
             ),
