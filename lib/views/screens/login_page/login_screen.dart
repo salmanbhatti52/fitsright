@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../common/widgets/app_password_feild.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _obscureText = true;
   late Size size;
 
   @override
@@ -105,14 +107,23 @@ class _LoginScreenState extends State<LoginScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Flexible(child: AppTextFeild(hint: 'Email / Phone Number')),
-        const Flexible(
-            child: AppTextFeild(
-          hint: 'Password',
-          suffix: Icon(
-            Icons.remove_red_eye_sharp,
-            color: Colors.grey,
+        Flexible(
+          child: AppPasswordFeild(
+            obscure: _obscureText,
+            hint: 'Password',
+            suffix: IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: const Color(0xFF6B7280).withOpacity(0.5),
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText;
+                });
+              },
+            ),
           ),
-        )),
+        ),
         Flexible(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.end,

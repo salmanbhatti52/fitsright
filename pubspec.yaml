@@ -43,6 +43,12 @@ dependencies:
   syncfusion_flutter_sliders: ^20.3.58
   tab_indicator_styler: ^2.0.0
   progress_dialog: ^1.2.4
+
+  shared_preferences: ^2.0.15
+  http: ^0.13.5
+  fluttertoast: ^8.1.2
+  modal_progress_hud_nsn: ^0.3.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

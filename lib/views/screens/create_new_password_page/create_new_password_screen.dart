@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../utils/app_colors.dart';
-import '../../common/widgets/app_text_feild.dart';
+import '../../../routes/screen_names.dart';
+import '../../common/widgets/app_password_feild.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
 
@@ -14,6 +15,8 @@ class CreateNewPassWord extends StatefulWidget {
 }
 
 class _CreateNewPassWordState extends State<CreateNewPassWord> {
+  bool _obscureText1 = true;
+  bool _obscureText2 = true;
   late Size size;
 
   @override
@@ -88,25 +91,41 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Flexible(
-            child: AppTextFeild(
-          hint: 'New Password',
-          suffix: Icon(
-            Icons.remove_red_eye_sharp,
-            size: 24,
-            color: Colors.grey,
+        Flexible(
+          child: AppPasswordFeild(
+            obscure: _obscureText1,
+            hint: 'New Password',
+            suffix: IconButton(
+              icon: Icon(
+                _obscureText1 ? Icons.visibility : Icons.visibility_off,
+                color: const Color(0xFF6B7280).withOpacity(0.5),
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureText1 = !_obscureText1;
+                });
+              },
+            ),
           ),
-        )),
+        ),
         _verticalSpace(size.height * 0.030),
-        const Flexible(
-            child: AppTextFeild(
-          hint: 'Confirm Password',
-          suffix: Icon(
-            Icons.remove_red_eye_sharp,
-            size: 24,
-            color: Colors.grey,
+        Flexible(
+          child: AppPasswordFeild(
+            obscure: _obscureText2,
+            hint: 'Confirm Password',
+            suffix: IconButton(
+              icon: Icon(
+                _obscureText2 ? Icons.visibility : Icons.visibility_off,
+                color: const Color(0xFF6B7280).withOpacity(0.5),
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureText2 = !_obscureText2;
+                });
+              },
+            ),
           ),
-        )),
+        ),
       ],
     );
   }
@@ -117,6 +136,7 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
       children: [
         Flexible(
           child: MyButton(
+            onTap: () => Get.toNamed(ScreenNames.loginScreen),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

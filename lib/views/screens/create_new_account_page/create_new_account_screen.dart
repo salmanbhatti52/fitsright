@@ -4,9 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../utils/app_colors.dart';
+import '../../common/widgets/app_password_feild.dart';
 import '../../common/widgets/app_text_feild.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
+// import 'package:http/http.dart' as http;
 
 class CreateNewAccount extends StatefulWidget {
   const CreateNewAccount({super.key});
@@ -16,6 +18,7 @@ class CreateNewAccount extends StatefulWidget {
 }
 
 class _CreateNewAccountState extends State<CreateNewAccount> {
+  bool _obscureText = true;
   late Size size;
   @override
   Widget build(BuildContext context) {
@@ -119,11 +122,23 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
         _verticalSpace(size.height * 0.015),
         const Flexible(child: AppTextFeild(hint: 'Phone Number')),
         _verticalSpace(size.height * 0.015),
-        const Flexible(
-            child: AppTextFeild(
-          hint: 'Password',
-          suffix: Icon(Icons.remove_red_eye_sharp),
-        )),
+        Flexible(
+          child: AppPasswordFeild(
+            obscure: _obscureText,
+            hint: 'Password',
+            suffix: IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: const Color(0xFF6B7280).withOpacity(0.5),
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText;
+                });
+              },
+            ),
+          ),
+        ),
       ],
     );
   }
