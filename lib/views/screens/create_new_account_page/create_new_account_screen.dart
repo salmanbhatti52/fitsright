@@ -148,7 +148,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
       children: [
         Flexible(
           child: MyButton(
-              onTap: () => Get.toNamed(ScreenNames.homeScreen),
+              onTap: () => Get.toNamed(ScreenNames.otpScreenSignup),
               radius: 15,
               color: AppColors.commonBtnColor,
               height: size.height * 0.07,

@@ -14,6 +14,7 @@ class PolicyScreen extends StatefulWidget {
 }
 
 class _PolicyScreenState extends State<PolicyScreen> {
+  bool checkBoxValue = false;
   late Size size;
   @override
   Widget build(BuildContext context) {
@@ -97,8 +98,12 @@ class _PolicyScreenState extends State<PolicyScreen> {
               color: Colors.grey.withOpacity(0.4),
               style: BorderStyle.solid,
             ),
-            value: false,
-            onChanged: (value) => false,
+            value: checkBoxValue,
+            onChanged: (bool? value) {
+              setState(() {
+                checkBoxValue = value!;
+              });
+            },
           ),
         ),
         Expanded(
@@ -125,7 +130,7 @@ class _PolicyScreenState extends State<PolicyScreen> {
             height: size.height * 0.07,
             width: size.width,
             child: Text(
-              'Next',
+              'Proceed',
               style:
                   textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
             ),

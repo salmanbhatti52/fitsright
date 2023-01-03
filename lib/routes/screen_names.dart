@@ -2,8 +2,9 @@ class ScreenNames {
   static const splashScreen = '/splash';
   static const loginScreen = '/login';
   static const forogotScreen = '/forgot';
-  static const otpScreen = '/otp';
+  static const otpScreenSignup = '/otpSignup';
   static const createNewPasswordScreen = '/createNewPassword';
+  static const otpScreenForgotPassword = '/otpForgotPassword';
   static const creatAccountScreen = '/createAccount';
   static const selectGenderScreen = '/selectGender';
   static const selectBirthdayScreen = '/selectBirthday';

@@ -1,5 +1,7 @@
 import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/views/screens/addmember_page/add_member_screen.dart';
+import 'package:fits_right/views/screens/create_new_account_page/otp_screen_signup.dart';
+import 'package:fits_right/views/screens/forgot_password_page/otp_screen_forgot_password.dart';
 import 'package:fits_right/views/screens/settings_page/change_password/change_password_screen.dart';
 import 'package:fits_right/views/screens/settings_page/delete_my_account/delete_account_screen.dart';
 import 'package:fits_right/views/screens/feedback_page/feedback_screen.dart';
@@ -20,7 +22,6 @@ import '../views/screens/create_new_account_page/create_new_account_screen.dart'
 import '../views/screens/create_new_password_page/create_new_password_screen.dart';
 import '../views/screens/forgot_password_page/forgot_password_screen.dart';
 import '../views/screens/login_page/login_screen.dart';
-import '../views/screens/otp_page/otp_screen.dart';
 import '../views/screens/select_birthday_page/select_birthday_screen.dart';
 import '../views/screens/select_gender_page/select_gender_screen.dart';
 import '../views/screens/splash_screen/splash_screen.dart';
@@ -32,8 +33,8 @@ class AppRoutes {
       page: () => const HomePage(),
     ),
     GetPage(
-      name: ScreenNames.otpScreen,
-      page: () => const OtpScreen(),
+      name: ScreenNames.otpScreenSignup,
+      page: () => const OtpScreenSignup(),
     ),
     GetPage(
       name: ScreenNames.loginScreen,
@@ -42,6 +43,10 @@ class AppRoutes {
     GetPage(
       name: ScreenNames.creatAccountScreen,
       page: () => const CreateNewAccount(),
+    ),
+    GetPage(
+      name: ScreenNames.otpScreenForgotPassword,
+      page: () => const OtpScreenForgotPassword(),
     ),
     GetPage(
       name: ScreenNames.forogotScreen,

@@ -109,7 +109,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.otpScreen),
+            onTap: () => Get.toNamed(ScreenNames.otpScreenForgotPassword),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

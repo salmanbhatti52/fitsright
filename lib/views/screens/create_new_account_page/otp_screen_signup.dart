@@ -7,14 +7,14 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
 
-class OtpScreen extends StatefulWidget {
-  const OtpScreen({super.key});
+class OtpScreenSignup extends StatefulWidget {
+  const OtpScreenSignup({super.key});
 
   @override
-  State<OtpScreen> createState() => _OtpScreenState();
+  State<OtpScreenSignup> createState() => _OtpScreenSignupState();
 }
 
-class _OtpScreenState extends State<OtpScreen> {
+class _OtpScreenSignupState extends State<OtpScreenSignup> {
   late Size size;
 
   @override
@@ -27,11 +27,11 @@ class _OtpScreenState extends State<OtpScreen> {
               physics: viewInsets > 0
                   ? const BouncingScrollPhysics()
                   : const NeverScrollableScrollPhysics(),
-              child: _otpScreenBody())),
+              child: _otpScreenSignupBody())),
     );
   }
 
-  Widget _otpScreenBody() {
+  Widget _otpScreenSignupBody() {
     return SizedBox(
       height: size.height * 0.9,
       child: Padding(
@@ -73,11 +73,14 @@ class _OtpScreenState extends State<OtpScreen> {
               FontWeight.bold, AppColors.commonBtnColor, size.height * 0.024),
         ),
         _verticalSpace(size.height * 0.010),
-        Text(
-          textAlign: TextAlign.start,
-          'We send a code to ( *****@mail.com ).Enter it here to verify your identity ',
-          style: textStyle(
-              FontWeight.normal, const Color(0xFF8D99AE), size.height * 0.020),
+        const Text(
+          textAlign: TextAlign.left,
+          'We send a code to ( *****@mail.com ). \nEnter it here to verify your identity ',
+          style: TextStyle(
+              fontWeight: FontWeight.normal,
+              color: Color(0xFF8D99AE),
+              fontSize: 16,
+              height: 1.5),
         ),
       ],
     );
@@ -135,7 +138,7 @@ class _OtpScreenState extends State<OtpScreen> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.createNewPasswordScreen),
+            onTap: () => Get.toNamed(ScreenNames.homeScreen),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

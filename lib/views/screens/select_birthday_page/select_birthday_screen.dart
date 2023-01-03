@@ -1,4 +1,4 @@
-import 'package:fits_right/views/common/widgets/drop_down_button.dart';
+import 'package:fits_right/views/common/widgets/drop_down_date_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../routes/screen_names.dart';
 import '../../../../utils/app_colors.dart';
 import '../../common/widgets/back_button.dart';
+import '../../common/widgets/drop_down_month_button.dart';
+import '../../common/widgets/drop_down_year_button.dart';
 import '../../common/widgets/my_button.dart';
 
 class SelectBirthday extends StatefulWidget {
@@ -93,20 +95,20 @@ class _SelectBirthdayState extends State<SelectBirthday> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Flexible(
-            child: MyDropDownButton(
-          width: size.width * 0.2,
+            child: MyDropDownDateButton(
+          width: size.width * 0.25,
           selection: 'Date',
         )),
         SizedBox(width: size.width * 0.025),
         Flexible(
-            child: MyDropDownButton(
-          width: size.width * 0.3,
+            child: MyDropDownMonthButton(
+          width: size.width * 0.4,
           selection: 'Month',
         )),
         SizedBox(width: size.width * 0.025),
         Flexible(
-            child: MyDropDownButton(
-          width: size.width * 0.2,
+            child: MyDropDownYearButton(
+          width: size.width * 0.3,
           selection: 'Year',
         )),
       ],
