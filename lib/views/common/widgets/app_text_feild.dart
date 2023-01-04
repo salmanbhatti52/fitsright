@@ -10,12 +10,14 @@ class AppTextFeild extends StatelessWidget {
     this.suffix,
     this.validator,
     this.maxLines,
+    this.keyboardType,
   }) : super(key: key);
   final String hint;
   final TextEditingController? controller;
   final Widget? suffix;
   final String? Function(String?)? validator;
   final int? maxLines;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -24,30 +26,37 @@ class AppTextFeild extends StatelessWidget {
       validator: validator,
       cursorColor: AppColors.commonBtnColor,
       controller: controller,
+      keyboardType: keyboardType,
       maxLines: maxLines,
       decoration: InputDecoration(
-          constraints:
-              BoxConstraints(maxWidth: size.width, minWidth: size.width),
-          //  suffix: suffix,
-          suffixIcon: suffix,
-          hintText: hint,
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(18),
-              borderSide: const BorderSide(
-                  width: 0.9,
-                  style: BorderStyle.solid,
-                  color: Color(0xffBDC6D1))),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(18),
-              borderSide: const BorderSide(
-                  width: 0.9,
-                  style: BorderStyle.solid,
-                  color: AppColors.commonBtnColor)),
-          disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(
-                width: 0.9, style: BorderStyle.solid, color: Color(0xffBDC6D1)),
-          )),
+        constraints: BoxConstraints(maxWidth: size.width, minWidth: size.width),
+        suffixIcon: suffix,
+        hintText: hint,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+          borderSide: const BorderSide(
+            width: 0.9,
+            style: BorderStyle.solid,
+            color: Color(0xffBDC6D1),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+          borderSide: const BorderSide(
+            width: 0.9,
+            style: BorderStyle.solid,
+            color: AppColors.commonBtnColor,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+          borderSide: const BorderSide(
+            width: 0.9,
+            style: BorderStyle.solid,
+            color: Color(0xffBDC6D1),
+          ),
+        ),
+      ),
     );
   }
 }
