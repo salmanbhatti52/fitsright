@@ -10,12 +10,14 @@ class AppPasswordFeild extends StatefulWidget {
     this.suffix,
     this.obscure,
     this.validator,
+    this.keyboardType,
   }) : super(key: key);
   bool? obscure;
   final String hint;
   final TextEditingController? controller;
   final Widget? suffix;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
 
   @override
   State<AppPasswordFeild> createState() => _AppPasswordFeildState();
@@ -30,29 +32,36 @@ class _AppPasswordFeildState extends State<AppPasswordFeild> {
       validator: widget.validator,
       cursorColor: AppColors.commonBtnColor,
       controller: widget.controller,
+      // keyboardType: keyboardType,
       decoration: InputDecoration(
-          constraints:
-              BoxConstraints(maxWidth: size.width, minWidth: size.width),
-          //  suffix: suffix,
-          suffixIcon: widget.suffix,
-          hintText: widget.hint,
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(18),
-              borderSide: const BorderSide(
-                  width: 0.9,
-                  style: BorderStyle.solid,
-                  color: Color(0xffBDC6D1))),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(18),
-              borderSide: const BorderSide(
-                  width: 0.9,
-                  style: BorderStyle.solid,
-                  color: AppColors.commonBtnColor)),
-          disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(
-                width: 0.9, style: BorderStyle.solid, color: Color(0xffBDC6D1)),
-          )),
+        constraints: BoxConstraints(maxWidth: size.width, minWidth: size.width),
+        suffixIcon: widget.suffix,
+        hintText: widget.hint,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+          borderSide: const BorderSide(
+            width: 0.9,
+            style: BorderStyle.solid,
+            color: Color(0xffBDC6D1),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+          borderSide: const BorderSide(
+            width: 0.9,
+            style: BorderStyle.solid,
+            color: AppColors.commonBtnColor,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+          borderSide: const BorderSide(
+            width: 0.9,
+            style: BorderStyle.solid,
+            color: Color(0xffBDC6D1),
+          ),
+        ),
+      ),
     );
   }
 }
