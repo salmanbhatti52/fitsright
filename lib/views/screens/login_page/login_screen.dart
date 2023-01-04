@@ -3,12 +3,16 @@ import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/app_text_feild.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/my_button.dart';
+import 'package:fits_right/views/screens/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import '../../../services/dio-service.dart';
 import '../../common/widgets/app_password_feild.dart';
+import '../../common/widgets/toast_message.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,8 +22,50 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _obscureText = true;
   late Size size;
+  bool _obscureText = true;
+  bool progress = false;
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  bool checkBoxValue = false;
+
+  _userLogin() async {
+    var response = await DioService.post('login', {
+      'user_email': emailController.text,
+      'user_password': passwordController.text,
+      'onesignal_id': 'onesignal_id'
+    });
+    if (response['status'] == 'success') {
+      // Future.delayed(
+      //   const Duration(seconds: 3),
+      //   () {
+      toastSuccessMessage("Login Successful", AppColors.commonBtnColor);
+      setState(
+        () {
+          progress = false;
+        },
+      );
+      //   },
+      // );
+      // ignore: use_build_context_synchronously
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const HomePage()));
+    }
+    if (response['status'] != 'success') {
+      Future.delayed(
+        const Duration(seconds: 3),
+        () {
+          toastFailedMessage("Login Error", Colors.red);
+          setState(
+            () {
+              progress = false;
+            },
+          );
+        },
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +73,20 @@ class _LoginScreenState extends State<LoginScreen> {
     var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-            physics: viewInsets > 0
-                ? const BouncingScrollPhysics()
-                : const NeverScrollableScrollPhysics(),
-            child: _loginScreenBody()),
+        body: ModalProgressHUD(
+          inAsyncCall: progress,
+          opacity: 0.02,
+          blur: 0.5,
+          color: Colors.transparent,
+          progressIndicator: const CircularProgressIndicator(
+            color: AppColors.commonBtnColor,
+          ),
+          child: SingleChildScrollView(
+              physics: viewInsets > 0
+                  ? const BouncingScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
+              child: _loginScreenBody()),
+        ),
       ),
     );
   }
@@ -103,42 +158,51 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget textFeilds() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Flexible(child: AppTextFeild(hint: 'Email / Phone Number')),
-        Flexible(
-          child: AppPasswordFeild(
-            obscure: _obscureText,
-            hint: 'Password',
-            suffix: IconButton(
-              icon: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
-                color: const Color(0xFF6B7280).withOpacity(0.5),
-              ),
-              onPressed: () {
-                setState(() {
-                  _obscureText = !_obscureText;
-                });
-              },
+    return Form(
+      key: loginFormKey,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Flexible(
+            child: AppTextFeild(
+              hint: 'Email or Phone Number',
+              controller: emailController,
             ),
           ),
-        ),
-        Flexible(
-            child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            GestureDetector(
-              onTap: () => Get.toNamed(ScreenNames.forogotScreen),
-              child: Text(
-                'Forgot Password?',
-                style: textStyle(FontWeight.w600, const Color(0xFF000000),
-                    size.height * 0.016),
+          Flexible(
+            child: AppPasswordFeild(
+              obscure: _obscureText,
+              hint: 'Password',
+              controller: passwordController,
+              suffix: IconButton(
+                icon: Icon(
+                  _obscureText ? Icons.visibility : Icons.visibility_off,
+                  color: const Color(0xFF6B7280).withOpacity(0.5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
               ),
             ),
-          ],
-        ))
-      ],
+          ),
+          Flexible(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              GestureDetector(
+                onTap: () => Get.toNamed(ScreenNames.forogotScreen),
+                child: Text(
+                  'Forgot Password?',
+                  style: textStyle(FontWeight.w600, const Color(0xFF000000),
+                      size.height * 0.016),
+                ),
+              ),
+            ],
+          ))
+        ],
+      ),
     );
   }
 
@@ -148,7 +212,21 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Flexible(
           child: MyButton(
-              onTap: () => Get.toNamed(ScreenNames.selectGenderScreen),
+              onTap: () {
+                // Get.toNamed(ScreenNames.selectGenderScreen);
+                if (loginFormKey.currentState!.validate()) {
+                  if (emailController.text.isEmpty) {
+                    toastFailedMessage('Email is required', Colors.red);
+                  } else if (passwordController.text.isEmpty) {
+                    toastFailedMessage('Password is required', Colors.red);
+                  } else {
+                    setState(() {
+                      progress = true;
+                    });
+                    _userLogin();
+                  }
+                }
+              },
               radius: 15,
               color: AppColors.commonBtnColor,
               height: size.height * 0.07,

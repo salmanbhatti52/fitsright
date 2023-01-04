@@ -1,13 +1,13 @@
-import 'package:fits_right/views/common/widgets/drop_down_date_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../routes/screen_names.dart';
 import '../../../../utils/app_colors.dart';
+import '../../common/dropdown_btns/drop_down_date_button.dart';
+import '../../common/dropdown_btns/drop_down_month_button.dart';
+import '../../common/dropdown_btns/drop_down_year_button.dart';
 import '../../common/widgets/back_button.dart';
-import '../../common/widgets/drop_down_month_button.dart';
-import '../../common/widgets/drop_down_year_button.dart';
 import '../../common/widgets/my_button.dart';
 
 class SelectBirthday extends StatefulWidget {
