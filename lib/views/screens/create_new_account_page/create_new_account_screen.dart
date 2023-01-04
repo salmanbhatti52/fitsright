@@ -1,14 +1,17 @@
 import 'package:fits_right/routes/screen_names.dart';
+import 'package:fits_right/services/dio-service.dart';
+import 'package:fits_right/views/screens/create_new_account_page/otp_screen_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../utils/app_colors.dart';
 import '../../common/widgets/app_password_feild.dart';
 import '../../common/widgets/app_text_feild.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
-// import 'package:http/http.dart' as http;
+import '../../common/widgets/toast_message.dart';
 
 class CreateNewAccount extends StatefulWidget {
   const CreateNewAccount({super.key});
@@ -19,19 +22,79 @@ class CreateNewAccount extends StatefulWidget {
 
 class _CreateNewAccountState extends State<CreateNewAccount> {
   bool _obscureText = true;
+  bool progress = false;
   late Size size;
+
+  final GlobalKey<FormState> singUpFormKey = GlobalKey<FormState>();
+  var fullNameController = TextEditingController();
+  var emailController = TextEditingController();
+  var phoneController = TextEditingController();
+  var passwordController = TextEditingController();
+  // CreateNewAccountModel createNewAccountModel = CreateNewAccountModel();
+  _usersignup() async {
+    var response = await DioService.post('signup', {
+      'onesignal_id': '1',
+      'full_name': fullNameController.text.trim(),
+      'user_email': emailController.text.trim(),
+      'user_password': passwordController.text,
+      'user_phone': phoneController.text.trim(),
+      'system_genders_id': '1',
+      'date_of_birth': '2022-11-22',
+      'terms_agreements': 'Yes',
+      'notification_switch': 'Yes'
+    });
+    if (response['status'] == 'success') {
+      // Future.delayed(
+      //   const Duration(seconds: 3),
+      //   () {
+      toastSuccessMessage("OTP sent to your email", AppColors.commonBtnColor);
+      setState(
+        () {
+          progress = false;
+        },
+      );
+      //   },
+      // );
+      // ignore: use_build_context_synchronously
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const OtpScreenSignup()));
+    }
+    if (response['status'] != 'success') {
+      Future.delayed(
+        const Duration(seconds: 3),
+        () {
+          toastFailedMessage("Signup Error", Colors.red);
+          setState(
+            () {
+              progress = false;
+            },
+          );
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     var viewInsets = MediaQuery.of(context).viewInsets.bottom;
-    return Scaffold(
-      body: SafeArea(
-          child: SingleChildScrollView(
-        physics: viewInsets > 0
-            ? const BouncingScrollPhysics()
-            : const NeverScrollableScrollPhysics(),
-        child: _createNewAccountBody(),
-      )),
+    return ModalProgressHUD(
+      inAsyncCall: progress,
+      opacity: 0.02,
+      blur: 0.5,
+      color: Colors.transparent,
+      progressIndicator: const CircularProgressIndicator(
+        color: AppColors.commonBtnColor,
+      ),
+      child: Scaffold(
+        body: SafeArea(
+            child: SingleChildScrollView(
+          physics: viewInsets > 0
+              ? const BouncingScrollPhysics()
+              : const NeverScrollableScrollPhysics(),
+          child: _createNewAccountBody(),
+        )),
+      ),
     );
   }
 
@@ -113,33 +176,55 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
   }
 
   Widget _textFeilds() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Flexible(child: AppTextFeild(hint: 'Full Name')),
-        _verticalSpace(size.height * 0.015),
-        const Flexible(child: AppTextFeild(hint: 'Email')),
-        _verticalSpace(size.height * 0.015),
-        const Flexible(child: AppTextFeild(hint: 'Phone Number')),
-        _verticalSpace(size.height * 0.015),
-        Flexible(
-          child: AppPasswordFeild(
-            obscure: _obscureText,
-            hint: 'Password',
-            suffix: IconButton(
-              icon: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
-                color: const Color(0xFF6B7280).withOpacity(0.5),
-              ),
-              onPressed: () {
-                setState(() {
-                  _obscureText = !_obscureText;
-                });
-              },
+    return Form(
+      key: singUpFormKey,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Flexible(
+            child: AppTextFeild(
+              hint: 'Full Name',
+              controller: fullNameController,
+              keyboardType: TextInputType.name,
             ),
           ),
-        ),
-      ],
+          _verticalSpace(size.height * 0.015),
+          Flexible(
+            child: AppTextFeild(
+              hint: 'Email',
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+            ),
+          ),
+          _verticalSpace(size.height * 0.015),
+          Flexible(
+            child: AppTextFeild(
+              hint: 'Phone Number',
+              controller: phoneController,
+              keyboardType: TextInputType.phone,
+            ),
+          ),
+          _verticalSpace(size.height * 0.015),
+          Flexible(
+            child: AppPasswordFeild(
+              obscure: _obscureText,
+              hint: 'Password',
+              controller: passwordController,
+              suffix: IconButton(
+                icon: Icon(
+                  _obscureText ? Icons.visibility : Icons.visibility_off,
+                  color: const Color(0xFF6B7280).withOpacity(0.5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -148,7 +233,26 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
       children: [
         Flexible(
           child: MyButton(
-              onTap: () => Get.toNamed(ScreenNames.otpScreenSignup),
+              onTap: () async {
+                // Get.toNamed(ScreenNames.otpScreenSignup);
+                if (singUpFormKey.currentState!.validate()) {
+                  if (fullNameController.text.isEmpty) {
+                    toastFailedMessage('Fullname is required', Colors.red);
+                  } else if (emailController.text.isEmpty) {
+                    toastFailedMessage('Email is required', Colors.red);
+                  } else if (phoneController.text.isEmpty) {
+                    toastFailedMessage('Phone Number is requirded', Colors.red);
+                  } else if (passwordController.text.length < 6) {
+                    toastFailedMessage(
+                        'Password must be atleast 6 digit', Colors.red);
+                  } else {
+                    setState(() {
+                      progress = true;
+                    });
+                    _usersignup();
+                  }
+                }
+              },
               radius: 15,
               color: AppColors.commonBtnColor,
               height: size.height * 0.07,

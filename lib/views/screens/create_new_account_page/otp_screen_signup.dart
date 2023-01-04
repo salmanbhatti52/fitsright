@@ -138,7 +138,7 @@ class _OtpScreenSignupState extends State<OtpScreenSignup> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.homeScreen),
+            onTap: () => Get.toNamed(ScreenNames.selectGenderScreen),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

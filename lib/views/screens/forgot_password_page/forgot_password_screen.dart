@@ -1,12 +1,14 @@
-import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/views/common/widgets/app_text_feild.dart';
 import 'package:fits_right/views/common/widgets/my_button.dart';
+import 'package:fits_right/views/screens/forgot_password_page/otp_screen_forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../utils/app_colors.dart';
+import '../../../services/dio-service.dart';
 import '../../common/widgets/back_button.dart';
+import '../../common/widgets/toast_message.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -17,6 +19,27 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   late Size size;
+
+  final GlobalKey<FormState> forgotPasswordFormKey = GlobalKey<FormState>();
+  var emailController = TextEditingController();
+
+  _forgotpassword() async {
+    var response = await DioService.post('reset_password', {
+      'user_email': emailController.text,
+    });
+    if (response['status'] == 'success') {
+      toastSuccessMessage("OTP sent to your email", AppColors.commonBtnColor);
+      // ignore: use_build_context_synchronously
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const OtpScreenForgotPassword()));
+    }
+    if (response['status'] != 'success') {
+      toastFailedMessage("Incorrect Email", Colors.red);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -100,7 +123,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   }
 
   Widget enterEmail() {
-    return const AppTextFeild(hint: 'Enter Your Email');
+    return Form(
+      key: forgotPasswordFormKey,
+      child: AppTextFeild(
+        hint: 'Enter Your Email',
+        controller: emailController,
+        keyboardType: TextInputType.emailAddress,
+      ),
+    );
   }
 
   Widget confirmButton() {
@@ -109,7 +139,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.otpScreenForgotPassword),
+            onTap: () {
+              // Get.toNamed(ScreenNames.otpScreenForgotPassword);
+              if (forgotPasswordFormKey.currentState!.validate()) {
+                if (emailController.text.isEmpty) {
+                  toastFailedMessage('Email is required', Colors.red);
+                } else {
+                  _forgotpassword();
+                }
+              }
+            },
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,
