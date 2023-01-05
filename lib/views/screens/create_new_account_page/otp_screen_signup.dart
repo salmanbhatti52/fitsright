@@ -11,7 +11,7 @@ import '../../common/widgets/toast_message.dart';
 
 class OtpScreenSignup extends StatefulWidget {
   const OtpScreenSignup({super.key});
- 
+
   @override
   State<OtpScreenSignup> createState() => _OtpScreenSignupState();
 }
@@ -174,7 +174,7 @@ class _OtpScreenSignupState extends State<OtpScreenSignup> {
               shape: PinCodeFieldShape.box,
               borderRadius: BorderRadius.circular(18),
               fieldHeight: 55,
-              fieldWidth: 5,
+              fieldWidth: 55,
               borderWidth: 0.9,
               activeColor: AppColors.commonBtnColor,
               selectedColor: AppColors.commonBtnColor,

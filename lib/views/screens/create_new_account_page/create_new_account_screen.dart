@@ -57,7 +57,9 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
       // );
       // ignore: use_build_context_synchronously
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const OtpScreenSignup()));
+          MaterialPageRoute(builder: (context) => const OtpScreenSignup(
+            
+          )));
     }
     if (response['status'] != 'success') {
       Future.delayed(
