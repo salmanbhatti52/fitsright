@@ -164,8 +164,8 @@ class _OtpScreenSignupState extends State<OtpScreenSignup> {
           appContext: context,
           length: 4,
           validator: (v) {
-            if (v!.length < 3) {
-              return "I'm from validator";
+            if (v!.isEmpty || v.length < 4) {
+              return 'All fields are required';
             } else {
               return null;
             }
@@ -211,16 +211,10 @@ class _OtpScreenSignupState extends State<OtpScreenSignup> {
           child: MyButton(
             onTap: () {
               // Get.toNamed(ScreenNames.selectGenderScreen);
-              if (otpSignupFormKey.currentState!.validate()) {
-                if (otpController.text.isEmpty) {
-                  toastFailedMessage('All fields are required', Colors.red);
-                } else {
-                  setState(() {
-                    progress = true;
-                  });
-                  _otpSignup();
-                }
-              }
+              setState(() {
+                progress = true;
+              });
+              _otpSignup();
             },
             radius: 15,
             color: AppColors.commonBtnColor,
