@@ -1,20 +1,59 @@
-import 'package:fits_right/routes/screen_names.dart';
+import 'package:fits_right/views/screens/create_new_password_page/create_new_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../../utils/app_colors.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import '../../../services/dio-service.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
+import '../../common/widgets/toast_message.dart';
 
 class OtpScreenForgotPassword extends StatefulWidget {
   const OtpScreenForgotPassword({super.key});
 
   @override
-  State<OtpScreenForgotPassword> createState() => _OtpScreenForgotPasswordState();
+  State<OtpScreenForgotPassword> createState() =>
+      _OtpScreenForgotPasswordState();
 }
 
 class _OtpScreenForgotPasswordState extends State<OtpScreenForgotPassword> {
+  final GlobalKey<FormState> otpForgotPasswordFormKey = GlobalKey<FormState>();
+  String currentText = "";
+  var otpController = TextEditingController();
+  bool progress = false;
+
+  _otpForgotPassword() async {
+    var response = await DioService.post('signup_verify_otp', {
+      'otp': otpController.text,
+      'users_customers_id': '41',
+    });
+    if (response['status'] == 'success') {
+      setState(
+        () {
+          progress = false;
+        },
+      );
+      // ignore: use_build_context_synchronously
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const CreateNewPassWord()));
+    }
+    if (response['status'] != 'success') {
+      Future.delayed(
+        const Duration(seconds: 3),
+        () {
+          toastFailedMessage("OTP is invalid", Colors.red);
+          setState(
+            () {
+              progress = false;
+            },
+          );
+        },
+      );
+    }
+  }
+
   late Size size;
 
   @override
@@ -22,12 +61,21 @@ class _OtpScreenForgotPasswordState extends State<OtpScreenForgotPassword> {
     size = MediaQuery.of(context).size;
     var viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
-      body: SafeArea(
-          child: SingleChildScrollView(
-              physics: viewInsets > 0
-                  ? const BouncingScrollPhysics()
-                  : const NeverScrollableScrollPhysics(),
-              child: _otpScreenForgotPasswordBody())),
+      body: ModalProgressHUD(
+        inAsyncCall: progress,
+        opacity: 0.02,
+        blur: 0.5,
+        color: Colors.transparent,
+        progressIndicator: const CircularProgressIndicator(
+          color: AppColors.commonBtnColor,
+        ),
+        child: SafeArea(
+            child: SingleChildScrollView(
+                physics: viewInsets > 0
+                    ? const BouncingScrollPhysics()
+                    : const NeverScrollableScrollPhysics(),
+                child: _otpScreenForgotPasswordBody())),
+      ),
     );
   }
 
@@ -120,15 +168,51 @@ class _OtpScreenForgotPasswordState extends State<OtpScreenForgotPassword> {
   }
 
   Widget _otpTextFeild() {
-    return OtpTextField(
-      //enabledBorderColor: ,
-      disabledBorderColor: const Color(0xffBDC6D1),
-      showFieldAsBox: true,
-      borderRadius: BorderRadius.circular(18),
-      fieldWidth: 55,
-      borderWidth: 0.9,
-      focusedBorderColor: AppColors.commonBtnColor,
-      keyboardType: TextInputType.number,
+    return Form(
+      key: otpForgotPasswordFormKey,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 45),
+        child: PinCodeTextField(
+          appContext: context,
+          length: 4,
+          validator: (v) {
+            if (v!.length < 3) {
+              return "I'm from validator";
+            } else {
+              return null;
+            }
+          },
+          pinTheme: PinTheme(
+              shape: PinCodeFieldShape.box,
+              borderRadius: BorderRadius.circular(18),
+              fieldHeight: 55,
+              fieldWidth: 55,
+              borderWidth: 0.9,
+              activeColor: AppColors.commonBtnColor,
+              selectedColor: AppColors.commonBtnColor,
+              inactiveColor: const Color(0xffBDC6D1),
+              disabledColor: const Color(0xffBDC6D1)),
+          cursorColor: AppColors.commonBtnColor,
+          // cursorHeight: 20,
+          controller: otpController,
+          keyboardType: TextInputType.number,
+          onCompleted: (v) {
+            debugPrint("Completed");
+          },
+          onChanged: (value) {
+            debugPrint(value);
+            setState(() {
+              currentText = value;
+            });
+          },
+          beforeTextPaste: (text) {
+            debugPrint("Allowing to paste $text");
+            //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+            //but you can show anything you want here, like your pop up saying wrong paste format or etc
+            return true;
+          },
+        ),
+      ),
     );
   }
 
@@ -138,7 +222,19 @@ class _OtpScreenForgotPasswordState extends State<OtpScreenForgotPassword> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.createNewPasswordScreen),
+            onTap: () {
+              // Get.toNamed(ScreenNames.createNewPasswordScreen);
+              if (otpForgotPasswordFormKey.currentState!.validate()) {
+                if (otpController.text.isEmpty) {
+                  toastFailedMessage('All fields are required', Colors.red);
+                } else {
+                  setState(() {
+                    progress = true;
+                  });
+                  _otpForgotPassword();
+                }
+              }
+            },
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

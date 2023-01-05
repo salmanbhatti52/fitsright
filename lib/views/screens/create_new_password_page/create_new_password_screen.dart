@@ -15,6 +15,10 @@ class CreateNewPassWord extends StatefulWidget {
 }
 
 class _CreateNewPassWordState extends State<CreateNewPassWord> {
+  final GlobalKey<FormState> createNewPasswordFormKey = GlobalKey<FormState>();
+  var newPasswordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
+
   bool _obscureText1 = true;
   bool _obscureText2 = true;
   late Size size;
@@ -88,45 +92,50 @@ class _CreateNewPassWordState extends State<CreateNewPassWord> {
   }
 
   Widget _textFeilds() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Flexible(
-          child: AppPasswordFeild(
-            obscure: _obscureText1,
-            hint: 'New Password',
-            suffix: IconButton(
-              icon: Icon(
-                _obscureText1 ? Icons.visibility : Icons.visibility_off,
-                color: const Color(0xFF6B7280).withOpacity(0.5),
+    return Form(
+      key: createNewPasswordFormKey,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Flexible(
+            child: AppPasswordFeild(
+              obscure: _obscureText1,
+              hint: 'New Password',
+              controller: newPasswordController,
+              suffix: IconButton(
+                icon: Icon(
+                  _obscureText1 ? Icons.visibility : Icons.visibility_off,
+                  color: const Color(0xFF6B7280).withOpacity(0.5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    _obscureText1 = !_obscureText1;
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  _obscureText1 = !_obscureText1;
-                });
-              },
             ),
           ),
-        ),
-        _verticalSpace(size.height * 0.030),
-        Flexible(
-          child: AppPasswordFeild(
-            obscure: _obscureText2,
-            hint: 'Confirm Password',
-            suffix: IconButton(
-              icon: Icon(
-                _obscureText2 ? Icons.visibility : Icons.visibility_off,
-                color: const Color(0xFF6B7280).withOpacity(0.5),
+          _verticalSpace(size.height * 0.030),
+          Flexible(
+            child: AppPasswordFeild(
+              obscure: _obscureText2,
+              hint: 'Confirm Password',
+              controller: confirmPasswordController,
+              suffix: IconButton(
+                icon: Icon(
+                  _obscureText2 ? Icons.visibility : Icons.visibility_off,
+                  color: const Color(0xFF6B7280).withOpacity(0.5),
+                ),
+                onPressed: () {
+                  setState(() {
+                    _obscureText2 = !_obscureText2;
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  _obscureText2 = !_obscureText2;
-                });
-              },
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
