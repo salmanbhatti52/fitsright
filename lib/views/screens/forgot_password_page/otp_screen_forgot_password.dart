@@ -1,14 +1,12 @@
-import 'package:fits_right/views/screens/create_new_password_page/create_new_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../../utils/app_colors.dart';
-import '../../../services/dio-service.dart';
+import '../../../routes/screen_names.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
-import '../../common/widgets/toast_message.dart';
 
 class OtpScreenForgotPassword extends StatefulWidget {
   const OtpScreenForgotPassword({super.key});
@@ -24,35 +22,35 @@ class _OtpScreenForgotPasswordState extends State<OtpScreenForgotPassword> {
   var otpController = TextEditingController();
   bool progress = false;
 
-  _otpForgotPassword() async {
-    var response = await DioService.post('signup_verify_otp', {
-      'otp': otpController.text,
-      'users_customers_id': '41',
-    });
-    if (response['status'] == 'success') {
-      setState(
-        () {
-          progress = false;
-        },
-      );
-      // ignore: use_build_context_synchronously
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const CreateNewPassWord()));
-    }
-    if (response['status'] != 'success') {
-      Future.delayed(
-        const Duration(seconds: 3),
-        () {
-          toastFailedMessage("OTP is invalid", Colors.red);
-          setState(
-            () {
-              progress = false;
-            },
-          );
-        },
-      );
-    }
-  }
+  // _otpForgotPassword() async {
+  //   var response = await DioService.post('signup_verify_otp', {
+  //     'otp': otpController.text,
+  //     'users_customers_id': '21',
+  //   });
+  //   if (response['status'] == 'success') {
+  //     setState(
+  //       () {
+  //         progress = false;
+  //       },
+  //     );
+  //     // ignore: use_build_context_synchronously
+  //     Navigator.push(context,
+  //         MaterialPageRoute(builder: (context) => const CreateNewPassWord()));
+  //   }
+  //   if (response['status'] != 'success') {
+  //     Future.delayed(
+  //       const Duration(seconds: 3),
+  //       () {
+  //         toastFailedMessage("OTP is invalid", Colors.red);
+  //         setState(
+  //           () {
+  //             progress = false;
+  //           },
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
 
   late Size size;
 
@@ -223,17 +221,17 @@ class _OtpScreenForgotPasswordState extends State<OtpScreenForgotPassword> {
         Flexible(
           child: MyButton(
             onTap: () {
-              // Get.toNamed(ScreenNames.createNewPasswordScreen);
-              if (otpForgotPasswordFormKey.currentState!.validate()) {
-                if (otpController.text.isEmpty) {
-                  toastFailedMessage('All fields are required', Colors.red);
-                } else {
-                  setState(() {
-                    progress = true;
-                  });
-                  _otpForgotPassword();
-                }
-              }
+              Get.toNamed(ScreenNames.createNewPasswordScreen);
+              // if (otpForgotPasswordFormKey.currentState!.validate()) {
+              //   if (otpController.text.isEmpty) {
+              //     toastFailedMessage('All fields are required', Colors.red);
+              //   } else {
+              //     setState(() {
+              //       progress = true;
+              //     });
+              //     _otpForgotPassword();
+              //   }
+              // }
             },
             radius: 15,
             color: AppColors.commonBtnColor,

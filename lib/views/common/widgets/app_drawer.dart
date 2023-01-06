@@ -1,6 +1,7 @@
 import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/drawer_list_item.dart';
+import 'package:fits_right/views/screens/login_page/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,13 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
           Expanded(
             child: DrawerListItem(
-              onTap: () => Get.toNamed(ScreenNames.loginScreen),
+              onTap: () {
+                // Get.toNamed(ScreenNames.loginScreen);
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
+              },
               tileIcon: SvgPicture.asset('assets/svgs/signouticon.svg'),
               tileText: 'Sign Out',
             ),
@@ -120,7 +127,7 @@ class _AppDrawerState extends State<AppDrawer> {
         DrawerListItem(
           onTap: () => Get.toNamed(ScreenNames.measurementScreen),
           tileIcon: SvgPicture.asset('assets/svgs/measureicon.svg'),
-          tileText: 'Measurement',
+          tileText: 'My Avatar',
           bgColor: AppColors.commonBtnColor,
         ),
         _verticalSpace(size.height * 0.016),
@@ -137,6 +144,7 @@ class _AppDrawerState extends State<AppDrawer> {
         ),
         _verticalSpace(size.height * 0.016),
         DrawerListItem(
+          onTap: () => Get.toNamed(ScreenNames.shoppingScreen),
           tileIcon: SvgPicture.asset('assets/svgs/retailersicon.svg'),
           tileText: 'Browse by Retailers',
         ),

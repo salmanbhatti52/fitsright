@@ -1,13 +1,11 @@
-import 'package:fits_right/views/screens/select_gender_page/select_gender_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../../utils/app_colors.dart';
-import '../../../services/dio-service.dart';
+import '../../../routes/screen_names.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
-import '../../common/widgets/toast_message.dart';
 
 class OtpScreenSignup extends StatefulWidget {
   const OtpScreenSignup({super.key});
@@ -23,35 +21,35 @@ class _OtpScreenSignupState extends State<OtpScreenSignup> {
   late Size size;
   bool progress = false;
 
-  _otpSignup() async {
-    var response = await DioService.post('signup_verify_otp', {
-      'otp': otpController.text,
-      'users_customers_id': '41',
-    });
-    if (response['status'] == 'success') {
-      setState(
-        () {
-          progress = false;
-        },
-      );
-      // ignore: use_build_context_synchronously
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const SelectGender()));
-    }
-    if (response['status'] != 'success') {
-      Future.delayed(
-        const Duration(seconds: 3),
-        () {
-          toastFailedMessage("OTP is invalid", Colors.red);
-          setState(
-            () {
-              progress = false;
-            },
-          );
-        },
-      );
-    }
-  }
+  // _otpSignup() async {
+  //   var response = await DioService.post('signup_verify_otp', {
+  //     'otp': otpController.text,
+  //     'users_customers_id': '74',
+  //   });
+  //   if (response['status'] == 'success') {
+  //     setState(
+  //       () {
+  //         progress = false;
+  //       },
+  //     );
+  //     // ignore: use_build_context_synchronously
+  //     Navigator.push(context,
+  //         MaterialPageRoute(builder: (context) => const SelectGender()));
+  //   }
+  //   if (response['status'] != 'success') {
+  //     Future.delayed(
+  //       const Duration(seconds: 3),
+  //       () {
+  //         toastFailedMessage("OTP is invalid", Colors.red);
+  //         setState(
+  //           () {
+  //             progress = false;
+  //           },
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -210,11 +208,11 @@ class _OtpScreenSignupState extends State<OtpScreenSignup> {
         Flexible(
           child: MyButton(
             onTap: () {
-              // Get.toNamed(ScreenNames.selectGenderScreen);
-              setState(() {
-                progress = true;
-              });
-              _otpSignup();
+              Get.toNamed(ScreenNames.selectGenderScreen);
+              // setState(() {
+              //   progress = true;
+              // });
+              // _otpSignup();
             },
             radius: 15,
             color: AppColors.commonBtnColor,

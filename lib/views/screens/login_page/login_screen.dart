@@ -3,16 +3,13 @@ import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/app_text_feild.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/my_button.dart';
-import 'package:fits_right/views/screens/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../../../services/dio-service.dart';
 import '../../common/widgets/app_password_feild.dart';
-import '../../common/widgets/toast_message.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -30,42 +27,42 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   bool checkBoxValue = false;
 
-  _userLogin() async {
-    var response = await DioService.post('login', {
-      'user_email': emailController.text,
-      'user_password': passwordController.text,
-      'onesignal_id': 'onesignal_id'
-    });
-    if (response['status'] == 'success') {
-      // Future.delayed(
-      //   const Duration(seconds: 3),
-      //   () {
-      toastSuccessMessage("Login Successful", AppColors.commonBtnColor);
-      setState(
-        () {
-          progress = false;
-        },
-      );
-      //   },
-      // );
-      // ignore: use_build_context_synchronously
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomePage()));
-    }
-    if (response['status'] != 'success') {
-      Future.delayed(
-        const Duration(seconds: 3),
-        () {
-          toastFailedMessage("Login Error", Colors.red);
-          setState(
-            () {
-              progress = false;
-            },
-          );
-        },
-      );
-    }
-  }
+  // _userLogin() async {
+  //   var response = await DioService.post('login', {
+  //     'user_email': emailController.text,
+  //     'user_password': passwordController.text,
+  //     'onesignal_id': 'onesignal_id'
+  //   });
+  //   if (response['status'] == 'success') {
+  //     // Future.delayed(
+  //     //   const Duration(seconds: 3),
+  //     //   () {
+  //     toastSuccessMessage("Login Successful", AppColors.commonBtnColor);
+  //     setState(
+  //       () {
+  //         progress = false;
+  //       },
+  //     );
+  //     //   },
+  //     // );
+  //     // ignore: use_build_context_synchronously
+  //     Navigator.pushReplacement(
+  //         context, MaterialPageRoute(builder: (context) => const HomePage()));
+  //   }
+  //   if (response['status'] != 'success') {
+  //     Future.delayed(
+  //       const Duration(seconds: 3),
+  //       () {
+  //         toastFailedMessage("Login Error", Colors.red);
+  //         setState(
+  //           () {
+  //             progress = false;
+  //           },
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -213,19 +210,19 @@ class _LoginScreenState extends State<LoginScreen> {
         Flexible(
           child: MyButton(
               onTap: () {
-                // Get.toNamed(ScreenNames.selectGenderScreen);
-                if (loginFormKey.currentState!.validate()) {
-                  if (emailController.text.isEmpty) {
-                    toastFailedMessage('Email is required', Colors.red);
-                  } else if (passwordController.text.isEmpty) {
-                    toastFailedMessage('Password is required', Colors.red);
-                  } else {
-                    setState(() {
-                      progress = true;
-                    });
-                    _userLogin();
-                  }
-                }
+                Get.toNamed(ScreenNames.selectGenderScreen);
+                // if (loginFormKey.currentState!.validate()) {
+                //   if (emailController.text.isEmpty) {
+                //     toastFailedMessage('Email is required', Colors.red);
+                //   } else if (passwordController.text.isEmpty) {
+                //     toastFailedMessage('Password is required', Colors.red);
+                //   } else {
+                //     setState(() {
+                //       progress = true;
+                //     });
+                //     _userLogin();
+                //   }
+                // }
               },
               radius: 15,
               color: AppColors.commonBtnColor,

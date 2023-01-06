@@ -1,17 +1,19 @@
+// ignore_for_file: avoid_print
+
 import 'package:fits_right/routes/screen_names.dart';
-import 'package:fits_right/services/dio-service.dart';
-import 'package:fits_right/views/screens/create_new_account_page/otp_screen_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../utils/app_colors.dart';
+// import '../../../utils/api_urls.dart';
+import '../../common/models/create_new_account_model.dart';
 import '../../common/widgets/app_password_feild.dart';
 import '../../common/widgets/app_text_feild.dart';
 import '../../common/widgets/back_button.dart';
 import '../../common/widgets/my_button.dart';
-import '../../common/widgets/toast_message.dart';
+// import 'package:http/http.dart' as http;
 
 class CreateNewAccount extends StatefulWidget {
   const CreateNewAccount({super.key});
@@ -30,51 +32,95 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
   var emailController = TextEditingController();
   var phoneController = TextEditingController();
   var passwordController = TextEditingController();
-  // CreateNewAccountModel createNewAccountModel = CreateNewAccountModel();
-  _usersignup() async {
-    var response = await DioService.post('signup', {
-      'onesignal_id': '1',
-      'full_name': fullNameController.text.trim(),
-      'user_email': emailController.text.trim(),
-      'user_password': passwordController.text,
-      'user_phone': phoneController.text.trim(),
-      'system_genders_id': '1',
-      'date_of_birth': '2022-11-22',
-      'terms_agreements': 'Yes',
-      'notification_switch': 'Yes'
-    });
-    if (response['status'] == 'success') {
-      // Future.delayed(
-      //   const Duration(seconds: 3),
-      //   () {
-      toastSuccessMessage("OTP sent to your email", AppColors.commonBtnColor);
-      setState(
-        () {
-          progress = false;
-        },
-      );
-      //   },
-      // );
-      // ignore: use_build_context_synchronously
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const OtpScreenSignup(
-            
-          )));
-    }
-    if (response['status'] != 'success') {
-      Future.delayed(
-        const Duration(seconds: 3),
-        () {
-          toastFailedMessage("Signup Error", Colors.red);
-          setState(
-            () {
-              progress = false;
-            },
-          );
-        },
-      );
-    }
-  }
+
+  CreateNewAccountModel createNewAccountModel = CreateNewAccountModel();
+
+  // registerUser() async {
+  //   try {
+  //     String apiUrl = signUpApiUrl;
+  //     print("api: $apiUrl");
+  //     print("one_signal_id: 1");
+  //     print("first_name: ${fullNameController.text}");
+  //     print("email: ${emailController.text}");
+  //     print("password: ${passwordController.text}");
+  //     print("phone: ${phoneController.text}");
+
+  //     final response = await http.post(
+  //       Uri.parse(apiUrl),
+  //       headers: {
+  //         'Accept': 'application/json',
+  //       },
+  //       body: {
+  //         'onesignal_id': '1',
+  //         'full_name': fullNameController.text.trim(),
+  //         'user_email': emailController.text.trim(),
+  //         'user_password': passwordController.text,
+  //         'user_phone': phoneController.text.trim(),
+  //         'system_genders_id': '1',
+  //         'date_of_birth': '2022-11-22',
+  //         'terms_agreements': 'Yes',
+  //         'notification_switch': 'Yes'
+  //       },
+  //     );
+
+  //     final responseString = response.body;
+  //     print("response SignUpApi: $responseString");
+
+  //     print("status Code SignUp: ${response.statusCode}");
+  //     if (response.statusCode == 200) {
+  //       print("in 200 signUp");
+  //       createNewAccountModel = createNewAccountModelFromJson(responseString);
+  //       print('createNewAccountModel status: ${createNewAccountModel.status}');
+  //     }
+  //   } catch (e) {
+  //     print('singUp error in catch = ${e.toString()}');
+  //     return null;
+  //   }
+  // }
+
+  // _usersignup() async {
+  //   var response = await DioService.post('signup', {
+  //     'onesignal_id': '1',
+  //     'full_name': fullNameController.text.trim(),
+  //     'user_email': emailController.text.trim(),
+  //     'user_password': passwordController.text,
+  //     'user_phone': phoneController.text.trim(),
+  //     'system_genders_id': '1',
+  //     'date_of_birth': '2022-11-22',
+  //     'terms_agreements': 'Yes',
+  //     'notification_switch': 'Yes'
+  //   });
+  //   // print(response['data']);
+  //   if (response['status'] == 'success') {
+  //     // Future.delayed(
+  //     //   const Duration(seconds: 3),
+  //     //   () {
+  //     toastSuccessMessage("OTP sent to your email", AppColors.commonBtnColor);
+  //     setState(
+  //       () {
+  //         progress = false;
+  //       },
+  //     );
+  //     //   },
+  //     // );
+  //     // ignore: use_build_context_synchronously
+  //     Navigator.push(context,
+  //         MaterialPageRoute(builder: (context) => const OtpScreenSignup()));
+  //   }
+  //   if (response['status'] != 'success') {
+  //     Future.delayed(
+  //       const Duration(seconds: 3),
+  //       () {
+  //         toastFailedMessage("Signup Error", Colors.red);
+  //         setState(
+  //           () {
+  //             progress = false;
+  //           },
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -236,24 +282,48 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
         Flexible(
           child: MyButton(
               onTap: () async {
-                // Get.toNamed(ScreenNames.otpScreenSignup);
-                if (singUpFormKey.currentState!.validate()) {
-                  if (fullNameController.text.isEmpty) {
-                    toastFailedMessage('Fullname is required', Colors.red);
-                  } else if (emailController.text.isEmpty) {
-                    toastFailedMessage('Email is required', Colors.red);
-                  } else if (phoneController.text.isEmpty) {
-                    toastFailedMessage('Phone Number is requirded', Colors.red);
-                  } else if (passwordController.text.length < 6) {
-                    toastFailedMessage(
-                        'Password must be atleast 6 digit', Colors.red);
-                  } else {
-                    setState(() {
-                      progress = true;
-                    });
-                    _usersignup();
-                  }
-                }
+                Get.toNamed(ScreenNames.otpScreenSignup);
+                // if (singUpFormKey.currentState!.validate()) {
+                //   if (fullNameController.text.isEmpty) {
+                //     toastFailedMessage('Fullname is required', Colors.red);
+                //   } else if (emailController.text.isEmpty) {
+                //     toastFailedMessage('Email is required', Colors.red);
+                //   } else if (phoneController.text.isEmpty) {
+                //     toastFailedMessage('Phone Number is requirded', Colors.red);
+                //   } else if (passwordController.text.length < 6) {
+                //     toastFailedMessage(
+                //         'Password must be atleast 6 digit', Colors.red);
+                //   } else {
+                //     setState(() {
+                //       progress = true;
+                //     });
+
+                //     _usersignup();
+
+                // if (createNewAccountModel.status == 'success') {
+                //   Future.delayed(const Duration(seconds: 3), () {
+                //     toastSuccessMessage(
+                //         "OTP sent to your email", AppColors.commonBtnColor);
+                //     Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => const OtpScreenSignup(
+                //                 // userId: signUpModel.data![0].usersCustomersId.toString(),
+                //                 // verifyCode: signUpModel.data![0].verifyCode,
+                //                 )));
+                //     setState(() {
+                //       progress = false;
+                //     });
+                //   });
+                // }
+                // if (createNewAccountModel.status != 'success') {
+                //   toastFailedMessage("Error", Colors.red);
+                //   setState(() {
+                //     progress = false;
+                //   });
+                // }
+                //   }
+                // }
               },
               radius: 15,
               color: AppColors.commonBtnColor,

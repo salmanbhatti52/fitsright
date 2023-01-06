@@ -1,16 +1,17 @@
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MeasureTabBarView extends StatelessWidget {
   const MeasureTabBarView({
     Key? key,
     required this.bodyPart,
-    required this.bodyPartModel,
+    // required this.bodyPartModel,
   }) : super(key: key);
 
   final String bodyPart;
-  final String bodyPartModel;
+  // final String bodyPartModel;
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +35,11 @@ class MeasureTabBarView extends StatelessWidget {
             )
           ],
         ),
-        Expanded(
-          child: SizedBox(
-            child: Image.asset(bodyPartModel),
-          ),
-        ),
+        // Expanded(
+        //   child: SizedBox(
+        //     child: SvgPicture.asset(bodyPartModel),
+        //   ),
+        // ),
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
