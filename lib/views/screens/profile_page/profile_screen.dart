@@ -4,10 +4,8 @@ import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/profile_pic_screen_row_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
-import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
 import '../../common/widgets/my_button.dart';
 
@@ -372,7 +370,6 @@ class _ProfileScreenState extends State<ProfileScreen>
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.shoppingScreen),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

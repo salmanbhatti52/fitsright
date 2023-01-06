@@ -56,7 +56,9 @@ class _MembersScreenState extends State<MembersScreen> {
           flex: 1,
           child: Builder(builder: (context) {
             return AppMenuButton(
-              onTap: () => Scaffold.of(context).openDrawer(),
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
             );
           }),
         ),
@@ -86,7 +88,7 @@ class _MembersScreenState extends State<MembersScreen> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: size.width,
-        height: size.height * 0.20,
+        height: size.height * 0.25,
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(10),
@@ -98,6 +100,7 @@ class _MembersScreenState extends State<MembersScreen> {
               Flexible(child: cardFirstRow()),
               Flexible(child: cardSecondRow()),
               Flexible(child: cardThirdRow()),
+              Flexible(child: goShoppingButon()),
             ],
           ),
         ),
@@ -165,6 +168,28 @@ class _MembersScreenState extends State<MembersScreen> {
         ProfilePicRowItem(title: 'Inside Leg Length', subTitle: '165 cm'),
         ProfilePicRowItem(title: 'Sleeve Length', subTitle: '165 cm'),
         ProfilePicRowItem(title: 'Height', subTitle: '165 cm'),
+      ],
+    );
+  }
+
+  Widget goShoppingButon() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Flexible(
+          child: MyButton(
+            onTap: () => Get.toNamed(ScreenNames.shoppingScreen),
+            radius: 15,
+            color: AppColors.commonBtnColor,
+            height: size.height * 0.07,
+            width: size.width,
+            child: Text(
+              'Go Shopping',
+              style:
+                  textStyle(FontWeight.w700, Colors.white, size.height * 0.020),
+            ),
+          ),
+        ),
       ],
     );
   }
