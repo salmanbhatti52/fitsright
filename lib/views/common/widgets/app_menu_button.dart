@@ -22,7 +22,7 @@ class AppMenuButton extends StatelessWidget {
         width: width * 0.089,
         decoration: BoxDecoration(
             color: Colors.white,
-            shape: BoxShape.rectangle,
+            // shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(height * 0.012),
             border:
                 Border.all(width: 0.5, color: Colors.grey.withOpacity(0.4))),
