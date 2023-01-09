@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../routes/screen_names.dart';
 import '../../../utils/app_colors.dart';
+import '../../common/widgets/measurement_unit_selector.dart';
 import '../../common/widgets/my_button.dart';
 
 class TakeMeasurement extends StatefulWidget {
@@ -47,7 +48,7 @@ class _TakeMeasurementState extends State<TakeMeasurement>
             Flexible(flex: 1, child: _tabBar()),
             Flexible(flex: 9, child: _tabBarView()),
             Flexible(flex: 1, child: _measurementEntry()),
-            Flexible(flex: 1, child: _block()),
+            const Flexible(flex: 1, child: MeasurementUnitWidget()),
             Flexible(flex: 1, child: _nextButton()),
           ],
         ),
@@ -225,10 +226,9 @@ class _TakeMeasurementState extends State<TakeMeasurement>
   //   );
   // }
 
-  Widget _block() {
+  Widget _measurementUnit() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      // crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
           width: size.width * 0.16,

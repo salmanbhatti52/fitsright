@@ -16,15 +16,10 @@ class MeasureTabBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Row(
-      mainAxisSize: MainAxisSize.max,
+    return Stack(
       children: [
         Column(
           children: [
-            Flexible(
-                child: SizedBox(
-              height: size.height * 0.01,
-            )),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
@@ -40,9 +35,12 @@ class MeasureTabBarView extends StatelessWidget {
             child: Image.asset(bodyPartModel),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 377, right: 10),
-          child: SvgPicture.asset('assets/svgs/informationicon.svg'),
+        Positioned(
+          right: 10,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SvgPicture.asset('assets/svgs/informationicon.svg'),
+          ),
         ),
       ],
     );
