@@ -47,6 +47,7 @@ class _TakeMeasurementState extends State<TakeMeasurement>
             Flexible(flex: 1, child: _tabBar()),
             Flexible(flex: 9, child: _tabBarView()),
             Flexible(flex: 1, child: _measurementEntry()),
+            Flexible(flex: 1, child: _block()),
             Flexible(flex: 1, child: _nextButton()),
           ],
         ),
@@ -118,43 +119,43 @@ class _TakeMeasurementState extends State<TakeMeasurement>
     return TabBarView(controller: _tabController, children: const [
       MeasureTabBarView(
         bodyPart: 'Neck',
-        // bodyPartModel: ('assets/svgs/neck_male.svg'),
+        bodyPartModel: ('assets/pngs/neck_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Sleeve Length',
-        // bodyPartModel: ('assets/svgs/sleevelength_male.svg'),
+        bodyPartModel: ('assets/pngs/sleevelength_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Chest',
-        // bodyPartModel: ('assets/svgs/chest_male.svg'),
+        bodyPartModel: ('assets/pngs/chest_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Waists',
-        // bodyPartModel: ('assets/svgs/waist_male.svg'),
+        bodyPartModel: ('assets/pngs/waist_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Low Hip',
-        // bodyPartModel: ('assets/svgs/lowhip_male.svg'),
+        bodyPartModel: ('assets/pngs/lowhip_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'High Hip',
-        // bodyPartModel: ('assets/svgs/highhip_male.svg'),
+        bodyPartModel: ('assets/pngs/highhip_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Height',
-        // bodyPartModel: ('assets/svgs/height_male.svg'),
+        bodyPartModel: ('assets/pngs/height_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Calf',
-        // bodyPartModel: ('assets/svgs/calf_male.svg'),
+        bodyPartModel: ('assets/pngs/calf_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Thigh',
-        // bodyPartModel: ('assets/svgs/thigh_male.svg'),
+        bodyPartModel: ('assets/pngs/thigh_male.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Inside Leg Length',
-        // bodyPartModel: ('assets/svgs/insideleglength_male.svg'),
+        bodyPartModel: ('assets/pngs/insideleglength_male.png'),
       )
     ]);
   }
@@ -223,6 +224,53 @@ class _TakeMeasurementState extends State<TakeMeasurement>
   //     ),
   //   );
   // }
+
+  Widget _block() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      // crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Container(
+          width: size.width * 0.16,
+          height: size.height * 0.04,
+          decoration: BoxDecoration(
+              color: AppColors.commonBtnColor,
+              borderRadius: BorderRadius.circular(20)),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Text(
+                'inches',
+                style: textStyle(
+                    FontWeight.w400, Colors.white, size.height * 0.014),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: size.width * 0.02,
+        ),
+        Container(
+          width: size.width * 0.16,
+          height: size.height * 0.04,
+          decoration: BoxDecoration(
+              //  color: Colors.blue,
+              border: Border.all(width: 1, color: const Color(0xFFBDC6D1)),
+              borderRadius: BorderRadius.circular(20)),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Text(
+                'cm',
+                style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
+                    size.height * 0.014),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   Widget _nextButton() {
     return Row(

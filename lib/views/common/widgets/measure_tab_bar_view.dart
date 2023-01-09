@@ -7,11 +7,11 @@ class MeasureTabBarView extends StatelessWidget {
   const MeasureTabBarView({
     Key? key,
     required this.bodyPart,
-    // required this.bodyPartModel,
+    required this.bodyPartModel,
   }) : super(key: key);
 
   final String bodyPart;
-  // final String bodyPartModel;
+  final String bodyPartModel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,52 +32,17 @@ class MeasureTabBarView extends StatelessWidget {
                 style: textStyle(FontWeight.w600, AppColors.commonBtnColor,
                     size.height * 0.018),
               ),
-            )
+            ),
           ],
         ),
-        // Expanded(
-        //   child: SizedBox(
-        //     child: SvgPicture.asset(bodyPartModel),
-        //   ),
-        // ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Container(
-                decoration: BoxDecoration(
-                    color: AppColors.commonBtnColor,
-                    borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'inches',
-                    style: textStyle(
-                        FontWeight.w400, Colors.white, size.height * 0.014),
-                  ),
-                )),
-            SizedBox(
-              height: size.height * 0.006,
-            ),
-            Container(
-                decoration: BoxDecoration(
-                    //  color: Colors.blue,
-                    border:
-                        Border.all(width: 1, color: const Color(0xFFBDC6D1)),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'cm',
-                    style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-                        size.height * 0.014),
-                  ),
-                )),
-            Flexible(
-                child: SizedBox(
-              height: size.height * 0.07,
-            )),
-          ],
+        Expanded(
+          child: SizedBox(
+            child: Image.asset(bodyPartModel),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 377, right: 10),
+          child: SvgPicture.asset('assets/svgs/informationicon.svg'),
         ),
       ],
     );

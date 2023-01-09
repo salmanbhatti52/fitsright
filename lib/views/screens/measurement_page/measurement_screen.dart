@@ -93,7 +93,7 @@ class _MeasurementsState extends State<Measurements> {
             fit: StackFit.expand,
             alignment: Alignment.center,
             children: [
-              Image.asset(r'assets/pngs/commingsoonpng.png'),
+              Image.asset(r'assets/pngs/comingsoon.png'),
               Container(
                 alignment: Alignment.center,
                 color: Colors.black.withOpacity(0.5),
