@@ -100,7 +100,9 @@ class _SelectGenderState extends State<SelectGender> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.selectBirthdayScreen),
+            onTap: () =>
+            
+             Get.toNamed(ScreenNames.selectBirthdayScreen),
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,

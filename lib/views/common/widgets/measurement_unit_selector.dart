@@ -84,62 +84,8 @@ class _GenderRadioItemState extends State<GenderRadioItem> {
         SizedBox(
           width: size.width * 0.02,
         ),
-        // Container(
-        //   width: size.width * 0.16,
-        //   height: size.height * 0.04,
-        //   decoration: BoxDecoration(
-        //       //  color: Colors.blue,
-        //       border: Border.all(width: 1, color: const Color(0xFFBDC6D1)),
-        //       borderRadius: BorderRadius.circular(20)),
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Center(
-        //       child: Text(
-        //         'cm',
-        //         style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-        //             size.height * 0.014),
-        //       ),
-        //     ),
-        //   ),
-        // ),
       ],
     );
-
-    // Row(
-    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //   children: [
-    //     Padding(
-    //       padding: const EdgeInsets.only(left: 10),
-    //       child: Container(
-    //         alignment: Alignment.center,
-    //         height: size.height * 0.50,
-    //         width: size.width * 0.43,
-    //         decoration: BoxDecoration(
-    //             border: Border.all(
-    //               color: _item.isSelectedUnit
-    //                   ? const Color(0xFF3541A5)
-    //                   : const Color(0xFFBDC6D1),
-    //             ),
-    //             shape: BoxShape.rectangle,
-    //             borderRadius: BorderRadius.circular(10)),
-    //         child: Column(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           children: [
-    //             Text(
-    //               _item.text,
-    //               style: textStyle(
-    //                   FontWeight.w600,
-    //                   _item.isSelectedUnit
-    //                       ? const Color(0xFF3541A5)
-    //                       : const Color(0xFF000000),
-    //                   size.height * 0.020),
-    //             )
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }
 

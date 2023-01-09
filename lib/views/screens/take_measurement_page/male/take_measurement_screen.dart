@@ -4,10 +4,10 @@ import 'package:fits_right/views/common/widgets/measure_tab_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../routes/screen_names.dart';
-import '../../../utils/app_colors.dart';
-import '../../common/widgets/measurement_unit_selector.dart';
-import '../../common/widgets/my_button.dart';
+import '../../../../../routes/screen_names.dart';
+import '../../../../../utils/app_colors.dart';
+import '../../../common/widgets/measurement_unit_selector.dart';
+import '../../../common/widgets/my_button.dart';
 
 class TakeMeasurement extends StatefulWidget {
   const TakeMeasurement({super.key});
@@ -31,7 +31,9 @@ class _TakeMeasurementState extends State<TakeMeasurement>
     size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: SafeArea(child: _takeMeasurementBody()),
+      body: SafeArea(
+        child: _takeMeasurementBody(),
+      ),
     );
   }
 
@@ -41,16 +43,18 @@ class _TakeMeasurementState extends State<TakeMeasurement>
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: size.width * 0.03, vertical: size.height * 0.03),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Flexible(flex: 2, child: _titleBar()),
-            Flexible(flex: 1, child: _tabBar()),
-            Flexible(flex: 9, child: _tabBarView()),
-            Flexible(flex: 1, child: _measurementEntry()),
-            const Flexible(flex: 1, child: MeasurementUnitWidget()),
-            Flexible(flex: 1, child: _nextButton()),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Flexible(flex: 2, child: _titleBar()),
+              Flexible(flex: 1, child: _tabBar()),
+              Flexible(flex: 9, child: _tabBarView()),
+              Flexible(flex: 1, child: _measurementEntry()),
+              const Flexible(flex: 1, child: MeasurementUnitWidget()),
+              Flexible(flex: 1, child: _nextButton()),
+            ],
+          ),
         ),
       ),
     );

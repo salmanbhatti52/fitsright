@@ -226,52 +226,6 @@ class _TakeMeasurementFemale extends State<TakeMeasurementFemale>
   //   );
   // }
 
-  Widget _measurementUnit() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          width: size.width * 0.16,
-          height: size.height * 0.04,
-          decoration: BoxDecoration(
-              color: AppColors.commonBtnColor,
-              borderRadius: BorderRadius.circular(20)),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                'inches',
-                style: textStyle(
-                    FontWeight.w400, Colors.white, size.height * 0.014),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: size.width * 0.02,
-        ),
-        Container(
-          width: size.width * 0.16,
-          height: size.height * 0.04,
-          decoration: BoxDecoration(
-              //  color: Colors.blue,
-              border: Border.all(width: 1, color: const Color(0xFFBDC6D1)),
-              borderRadius: BorderRadius.circular(20)),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                'cm',
-                style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-                    size.height * 0.014),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _nextButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
