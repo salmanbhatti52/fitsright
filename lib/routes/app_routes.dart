@@ -2,7 +2,6 @@ import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/views/screens/addmember_page/add_member_screen.dart';
 import 'package:fits_right/views/screens/create_new_account_page/otp_screen_signup.dart';
 import 'package:fits_right/views/screens/forgot_password_page/otp_screen_forgot_password.dart';
-import 'package:fits_right/views/screens/take_measurement_page/male/take_measurement_screen.dart';
 import 'package:fits_right/views/screens/settings_page/change_password/change_password_screen.dart';
 import 'package:fits_right/views/screens/settings_page/delete_my_account/delete_account_screen.dart';
 import 'package:fits_right/views/screens/feedback_page/feedback_screen.dart';
@@ -17,6 +16,7 @@ import 'package:fits_right/views/screens/settings_page/privacy_policy/privacy_po
 import 'package:fits_right/views/screens/settings_page/settings_screen.dart';
 import 'package:fits_right/views/screens/settings_page/term_and_conditions/term_and_condtions.dart';
 import 'package:fits_right/views/screens/shopping_page/shopping_screen.dart';
+import 'package:fits_right/views/screens/take_measurement_page/male/take_measurment_screen_male.dart';
 import 'package:get/get.dart';
 import '../views/screens/create_new_account_page/create_new_account_screen.dart';
 import '../views/screens/create_new_password_page/create_new_password_screen.dart';
@@ -77,8 +77,8 @@ class AppRoutes {
       page: () => const Measurements(),
     ),
     GetPage(
-      name: ScreenNames.takeMeasurementScreen,
-      page: () => const TakeMeasurement(),
+      name: ScreenNames.takeMeasurementScreenMale,
+      page: () => const TakeMeasurementMale(),
     ),
     GetPage(
       name: ScreenNames.measurementDetailScreen,

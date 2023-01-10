@@ -11,7 +11,7 @@ class ScreenNames {
   static const policyScreen = '/policy';
   static const homeScreen = '/home';
   static const measurementScreen = '/measurement';
-  static const takeMeasurementScreen = '/takemeasurement';
+  static const takeMeasurementScreenMale = '/takemeasurementMale';
   static const measurementDetailScreen = '/measurementDetail';
   static const profileScreen = '/profileScreen';
   static const shoppingScreen = '/shoppingScreen';
