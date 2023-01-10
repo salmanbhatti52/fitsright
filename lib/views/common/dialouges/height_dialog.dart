@@ -21,7 +21,7 @@ class _HeightDialogState extends State<HeightDialog> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
-          height: size.height * 0.3,
+          height: size.height * 0.35,
           width: size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +46,7 @@ class _HeightDialogState extends State<HeightDialog> {
               ),
               Flexible(child: SizedBox(height: size.height * 0.02)),
               Text(
-                "lorium ipsum",
+                "Make sure your legs are straight,\narms are at sides, and shoulders\nare level. Make sure your looking\nstraight ahead and that the line\nof sight is parallel with the floor.\nTake the measurement while you\nstand with head, shoulders,\nbuttocks, and heels touching a\nflat surface (wall).",
                 style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
                     size.height * 0.018),
                 textAlign: TextAlign.center,

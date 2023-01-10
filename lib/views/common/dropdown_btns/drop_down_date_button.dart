@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, avoid_print
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 class MyDropDownDateButton extends StatefulWidget {
@@ -18,8 +20,9 @@ class MyDropDownDateButton extends StatefulWidget {
 }
 
 class _MyDropDownDateButtonState extends State<MyDropDownDateButton> {
-  String dropdownvalue = '1';
+  String dropdownvalue = 'Date';
   var items = [
+    'Date',
     '1',
     '2',
     '3',
@@ -70,32 +73,33 @@ class _MyDropDownDateButtonState extends State<MyDropDownDateButton> {
             Flexible(
                 child: DropdownButtonHideUnderline(
               child: DropdownButton2(
-                buttonDecoration: const BoxDecoration(),
-                hint: const Text(
+                hint: Text(
                   'Date',
-                  style: TextStyle(
-                    fontSize: 12,
+                  style: GoogleFonts.inter(
+                    textStyle: const TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF9CA3AF),
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
-                icon: const Icon(
-                  Icons.keyboard_arrow_down,
-                ),
+                icon: SvgPicture.asset('assets/svgs/birthdaydropdownarrow.svg'),
                 items: items
-                    .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Container(
-                            // color: Colors.yellow,
-                            decoration: const BoxDecoration(
-                                // borderRadius: BorderRadius.circular(4.h)
-                                ),
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                fontSize: 14,
-                              ),
+                    .map(
+                      (item) => DropdownMenuItem<String>(
+                        value: item,
+                        child: Text(
+                          item,
+                          style: GoogleFonts.inter(
+                            textStyle: const TextStyle(
+                              fontSize: 14,
+                              color: Color(0xFF9CA3AF),
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                        ))
+                        ),
+                      ),
+                    )
                     .toList(),
                 value: dropdownvalue,
                 onChanged: (String? newValue) {
@@ -103,11 +107,9 @@ class _MyDropDownDateButtonState extends State<MyDropDownDateButton> {
                     dropdownvalue = newValue!;
                   });
                 },
-                // buttonHeight: 5
-                // buttonWidth: 19.h,
-                // itemHeight:null
+                // buttonWidth: 10.h,
                 dropdownMaxHeight: 30.h,
-                scrollbarThickness: 6,
+                scrollbarThickness: 0,
               ),
             )),
           ],
