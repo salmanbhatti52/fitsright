@@ -3,6 +3,7 @@ import 'package:fits_right/views/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -17,12 +18,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Fits Right',
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
-      getPages: AppRoutes.appRoutes,
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return GetMaterialApp(
+        title: 'Fits Right',
+        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+        debugShowCheckedModeBanner: false,
+        home: const SplashScreen(),
+        getPages: AppRoutes.appRoutes,
+      );
+    });
   }
 }
