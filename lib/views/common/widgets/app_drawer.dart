@@ -104,7 +104,8 @@ class _AppDrawerState extends State<AppDrawer> {
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.grey.withOpacity(0.1))),
                   child: Image.asset('assets/pngs/home_page_bg.jpg',
-                      fit: BoxFit.cover),
+                      fit: BoxFit.cover
+                      ),
                 ),
               ),
               _verticalSpace(size.height * 0.009),
