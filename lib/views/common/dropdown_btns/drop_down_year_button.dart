@@ -136,7 +136,7 @@ class _MyDropDownYearButtonState extends State<MyDropDownYearButton> {
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: const Color(0xFFBDC6D1))),
       child: Padding(
-        padding: const EdgeInsets.all(0.0),
+        padding: const EdgeInsets.only(left: 10, right: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -178,9 +178,13 @@ class _MyDropDownYearButtonState extends State<MyDropDownYearButton> {
                       dropdownvalue = newValue!;
                     });
                   },
-                  // buttonWidth: 10.h,
-                  dropdownMaxHeight: 30.h,
+                  buttonWidth: 20.h,
+                  dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  dropdownMaxHeight: 20.h,
                   scrollbarThickness: 0,
+                  itemHeight: 30,
                 ),
               ),
             ),
