@@ -151,19 +151,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _skipText() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Skip now and go to Shopping',
-          style: textStyle(
-              FontWeight.w400, const Color(0xFF8D99AE), size.height * 0.016),
-        ),
-        const SizedBox(
-          width: 5,
-        ),
-        SvgPicture.asset('assets/svgs/arrowforword.svg')
-      ],
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(ScreenNames.shoppingScreen);
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Skip now and go to Shopping',
+            style: textStyle(
+                FontWeight.w400, const Color(0xFF8D99AE), size.height * 0.016),
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          SvgPicture.asset('assets/svgs/arrowforword.svg')
+        ],
+      ),
     );
   }
 

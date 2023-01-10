@@ -41,7 +41,11 @@ class _TakeMeasurementFemale extends State<TakeMeasurementFemale>
     size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: SafeArea(child: _takeMeasurementBody()),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: _takeMeasurementBody(),
+        ),
+      ),
     );
   }
 

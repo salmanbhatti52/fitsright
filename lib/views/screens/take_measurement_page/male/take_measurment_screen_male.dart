@@ -40,7 +40,11 @@ class _TakeMeasurementMale extends State<TakeMeasurementMale>
     size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: SafeArea(child: _takeMeasurementBody()),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: _takeMeasurementBody(),
+        ),
+      ),
     );
   }
 
@@ -58,7 +62,6 @@ class _TakeMeasurementMale extends State<TakeMeasurementMale>
             Flexible(flex: 9, child: _tabBarView()),
             Flexible(flex: 1, child: _measurementEntry()),
             const Flexible(flex: 1, child: MeasurementUnitWidget()),
-            // Flexible(flex: 1, child: _measurementUnit()),
             Flexible(flex: 1, child: _nextButton()),
           ],
         ),
