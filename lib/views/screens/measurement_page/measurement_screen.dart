@@ -1,6 +1,5 @@
 import 'package:fits_right/views/common/widgets/app_drawer.dart';
 import 'package:fits_right/views/common/widgets/app_menu_button.dart';
-import 'package:fits_right/views/screens/take_measurement_page/Female/take_measurement_screen_female.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -121,11 +120,11 @@ class _MeasurementsState extends State<Measurements> {
         Flexible(
           child: MyButton(
             onTap: () {
-              // Get.toNamed(ScreenNames.takeMeasurementScreen);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const TakeMeasurementFemale()));
+              Get.toNamed(ScreenNames.takeMeasurementScreenMale);
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => const TakeMeasurementMale()));
             },
             radius: 15,
             color: AppColors.commonBtnColor,

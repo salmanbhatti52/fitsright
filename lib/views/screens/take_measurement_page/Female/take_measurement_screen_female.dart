@@ -140,7 +140,7 @@ class _TakeMeasurementFemale extends State<TakeMeasurementFemale>
       ),
       MeasureTabBarView(
         bodyPart: 'High Hip',
-        bodyPartModel: ('assets/pngs/heighhip_female.png'),
+        bodyPartModel: ('assets/pngs/highhip_female.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Height',
@@ -197,34 +197,6 @@ class _TakeMeasurementFemale extends State<TakeMeasurementFemale>
       ),
     );
   }
-  // Widget _measurementSlider() {
-  //   return Container(
-  //     width: size.width,
-  //     height: size.height,
-  //     color: Colors.transparent,
-  //     child: SfSlider(
-  //       inactiveColor: Colors.transparent,
-  //       activeColor: Colors.transparent,
-  //       thumbIcon: const VerticalDivider(
-  //         thickness: 1,
-  //         color: Colors.black,
-  //       ),
-  //       min: 1,
-  //       max: 20,
-  //       interval: 1,
-  //       // stepSize: 2,
-  //       enableTooltip: true,
-  //       minorTicksPerInterval: 3,
-  //       showTicks: true,
-  //       value: _value,
-  //       onChanged: (value) {
-  //         setState(() {
-  //           _value = value;
-  //         });
-  //       },
-  //     ),
-  //   );
-  // }
 
   Widget _nextButton() {
     return Row(
