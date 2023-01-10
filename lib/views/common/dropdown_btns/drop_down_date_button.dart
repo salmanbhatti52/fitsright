@@ -2,7 +2,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 
 class MyDropDownDateButton extends StatefulWidget {
   const MyDropDownDateButton({
@@ -83,7 +82,6 @@ class _MyDropDownDateButtonState extends State<MyDropDownDateButton> {
                 ),
                 items: items
                     .map((item) => DropdownMenuItem<String>(
-
                           value: item,
                           child: Container(
                             // color: Colors.yellow,
@@ -97,8 +95,7 @@ class _MyDropDownDateButtonState extends State<MyDropDownDateButton> {
                               ),
                             ),
                           ),
-                        )
-                        )
+                        ))
                     .toList(),
                 value: dropdownvalue,
                 onChanged: (String? newValue) {

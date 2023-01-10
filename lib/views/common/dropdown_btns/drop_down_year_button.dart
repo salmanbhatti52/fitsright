@@ -1,8 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, avoid_print
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 class MyDropDownYearButton extends StatefulWidget {
