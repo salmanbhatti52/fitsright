@@ -53,11 +53,12 @@ class _TakeMeasurementMale extends State<TakeMeasurementMale>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Flexible(flex: 2, child: _titleBar()),
-            Flexible(flex: 1, child: _tabBar()),
+            Flexible(flex: 1, child: _titleBar()),
+            Flexible(flex: 2, child: _tabBar()),
             Flexible(flex: 9, child: _tabBarView()),
             Flexible(flex: 1, child: _measurementEntry()),
             const Flexible(flex: 1, child: MeasurementUnitWidget()),
+            // Flexible(flex: 1, child: _measurementUnit()),
             Flexible(flex: 1, child: _nextButton()),
           ],
         ),
