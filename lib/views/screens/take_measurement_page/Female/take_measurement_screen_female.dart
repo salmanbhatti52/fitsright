@@ -2,12 +2,22 @@ import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/measure_tab_bar.dart';
-import 'package:fits_right/views/common/widgets/measure_tab_bar_view.dart';
 import 'package:fits_right/views/common/widgets/measurement_unit_selector.dart';
 import 'package:fits_right/views/common/widgets/my_button.dart';
+import 'package:fits_right/views/common/tabbar_view/female/bust.dart';
+import 'package:fits_right/views/common/tabbar_view/female/calf.dart';
+import 'package:fits_right/views/common/tabbar_view/female/height.dart';
+import 'package:fits_right/views/common/tabbar_view/female/highhip.dart';
+import 'package:fits_right/views/common/tabbar_view/female/insideleglength.dart';
+import 'package:fits_right/views/common/tabbar_view/female/lowhip.dart';
+import 'package:fits_right/views/common/tabbar_view/female/sleeve_length.dart';
+import 'package:fits_right/views/common/tabbar_view/female/thigh.dart';
+import 'package:fits_right/views/common/tabbar_view/female/waist.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../common/tabbar_view/female/neck.dart';
 
 class TakeMeasurementFemale extends StatefulWidget {
   const TakeMeasurementFemale({super.key});
@@ -118,46 +128,16 @@ class _TakeMeasurementFemale extends State<TakeMeasurementFemale>
 
   Widget _tabBarView() {
     return TabBarView(controller: _tabController, children: const [
-      MeasureTabBarView(
-        bodyPart: 'Neck',
-        bodyPartModel: ('assets/pngs/neck_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Sleeve Length',
-        bodyPartModel: ('assets/pngs/sleevelength_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Bust',
-        bodyPartModel: ('assets/pngs/chest_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Waist',
-        bodyPartModel: ('assets/pngs/waist_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Low Hip',
-        bodyPartModel: ('assets/pngs/lowhip_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'High Hip',
-        bodyPartModel: ('assets/pngs/highhip_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Height',
-        bodyPartModel: ('assets/pngs/height_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Calf',
-        bodyPartModel: ('assets/pngs/calf_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Thigh',
-        bodyPartModel: ('assets/pngs/thigh_female.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Inside Leg Length',
-        bodyPartModel: ('assets/pngs/insideleglength_female.png'),
-      )
+      NeckTabBarView(),
+      SleeveLengthTabBarView(),
+      BustTabBarView(),
+      WaistTabBarView(),
+      LowHipTabBarView(),
+      HighHipTabBarView(),
+      HeightTabBarView(),
+      CalfTabBarView(),
+      ThighTabBarView(),
+      InsideLegLengthTabBarView(),
     ]);
   }
 

@@ -2,12 +2,21 @@ import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/measure_tab_bar.dart';
-import 'package:fits_right/views/common/widgets/measure_tab_bar_view.dart';
 import 'package:fits_right/views/common/widgets/measurement_unit_selector.dart';
 import 'package:fits_right/views/common/widgets/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../common/tabbar_view/male/calf.dart';
+import '../../../common/tabbar_view/male/chest.dart';
+import '../../../common/tabbar_view/male/height.dart';
+import '../../../common/tabbar_view/male/highhip.dart';
+import '../../../common/tabbar_view/male/insideleglength.dart';
+import '../../../common/tabbar_view/male/lowhip.dart';
+import '../../../common/tabbar_view/male/neck.dart';
+import '../../../common/tabbar_view/male/sleeve_length.dart';
+import '../../../common/tabbar_view/male/thigh.dart';
+import '../../../common/tabbar_view/male/waist.dart';
 
 class TakeMeasurementMale extends StatefulWidget {
   const TakeMeasurementMale({super.key});
@@ -118,46 +127,16 @@ class _TakeMeasurementMale extends State<TakeMeasurementMale>
 
   Widget _tabBarView() {
     return TabBarView(controller: _tabController, children: const [
-      MeasureTabBarView(
-        bodyPart: 'Neck',
-        bodyPartModel: ('assets/pngs/neck_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Sleeve Length',
-        bodyPartModel: ('assets/pngs/sleevelength_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Chest',
-        bodyPartModel: ('assets/pngs/chest_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Waist',
-        bodyPartModel: ('assets/pngs/waist_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Low Hip',
-        bodyPartModel: ('assets/pngs/lowhip_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'High Hip',
-        bodyPartModel: ('assets/pngs/highhip_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Height',
-        bodyPartModel: ('assets/pngs/height_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Calf',
-        bodyPartModel: ('assets/pngs/calf_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Thigh',
-        bodyPartModel: ('assets/pngs/thigh_male.png'),
-      ),
-      MeasureTabBarView(
-        bodyPart: 'Inside Leg Length',
-        bodyPartModel: ('assets/pngs/insideleglength_male.png'),
-      )
+      NeckTabBarView(),
+      SleeveLengthTabBarView(),
+      ChestTabBarView(),
+      WaistTabBarView(),
+      LowHipTabBarView(),
+      HighHipTabBarView(),
+      HeightTabBarView(),
+      CalfTabBarView(),
+      ThighTabBarView(),
+      InsideLegLengthTabBarView(),
     ]);
   }
 
