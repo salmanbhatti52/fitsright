@@ -140,7 +140,7 @@ class _TakeMeasurementFemale extends State<TakeMeasurementFemale>
       ),
       MeasureTabBarView(
         bodyPart: 'High Hip',
-        bodyPartModel: ('assets/pngs/heighhip_female.png'),
+        bodyPartModel: ('assets/pngs/highhip_female.png'),
       ),
       MeasureTabBarView(
         bodyPart: 'Height',
@@ -195,80 +195,6 @@ class _TakeMeasurementFemale extends State<TakeMeasurementFemale>
           ),
         ),
       ),
-    );
-  }
-  // Widget _measurementSlider() {
-  //   return Container(
-  //     width: size.width,
-  //     height: size.height,
-  //     color: Colors.transparent,
-  //     child: SfSlider(
-  //       inactiveColor: Colors.transparent,
-  //       activeColor: Colors.transparent,
-  //       thumbIcon: const VerticalDivider(
-  //         thickness: 1,
-  //         color: Colors.black,
-  //       ),
-  //       min: 1,
-  //       max: 20,
-  //       interval: 1,
-  //       // stepSize: 2,
-  //       enableTooltip: true,
-  //       minorTicksPerInterval: 3,
-  //       showTicks: true,
-  //       value: _value,
-  //       onChanged: (value) {
-  //         setState(() {
-  //           _value = value;
-  //         });
-  //       },
-  //     ),
-  //   );
-  // }
-
-  Widget _measurementUnit() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          width: size.width * 0.16,
-          height: size.height * 0.04,
-          decoration: BoxDecoration(
-              color: AppColors.commonBtnColor,
-              borderRadius: BorderRadius.circular(20)),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                'inches',
-                style: textStyle(
-                    FontWeight.w400, Colors.white, size.height * 0.014),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: size.width * 0.02,
-        ),
-        Container(
-          width: size.width * 0.16,
-          height: size.height * 0.04,
-          decoration: BoxDecoration(
-              //  color: Colors.blue,
-              border: Border.all(width: 1, color: const Color(0xFFBDC6D1)),
-              borderRadius: BorderRadius.circular(20)),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                'cm',
-                style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-                    size.height * 0.014),
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 

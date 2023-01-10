@@ -1,10 +1,30 @@
+import 'dart:async';
+import 'package:fits_right/routes/screen_names.dart';
 import 'package:fits_right/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MeasurementScreenDialog extends StatelessWidget {
+class MeasurementScreenDialog extends StatefulWidget {
   const MeasurementScreenDialog({super.key});
+
+  @override
+  State<MeasurementScreenDialog> createState() =>
+      _MeasurementScreenDialogState();
+}
+
+class _MeasurementScreenDialogState extends State<MeasurementScreenDialog> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+      const Duration(seconds: 3),
+      () {
+        Get.offAndToNamed(ScreenNames.shoppingScreen);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

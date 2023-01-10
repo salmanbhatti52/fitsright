@@ -93,7 +93,10 @@ class _MeasurementsState extends State<Measurements> {
             fit: StackFit.expand,
             alignment: Alignment.center,
             children: [
-              Image.asset(r'assets/pngs/comingsoon.png'),
+              Image.asset(
+                r'assets/pngs/comingsoon.png',
+                fit: BoxFit.cover,
+              ),
               Container(
                 alignment: Alignment.center,
                 color: Colors.black.withOpacity(0.5),
@@ -116,7 +119,13 @@ class _MeasurementsState extends State<Measurements> {
       children: [
         Flexible(
           child: MyButton(
-            onTap: () => Get.toNamed(ScreenNames.takeMeasurementScreen),
+            onTap: () {
+              Get.toNamed(ScreenNames.takeMeasurementScreenMale);
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => const TakeMeasurementMale()));
+            },
             radius: 15,
             color: AppColors.commonBtnColor,
             height: size.height * 0.07,
