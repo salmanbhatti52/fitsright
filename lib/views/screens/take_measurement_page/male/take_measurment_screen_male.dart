@@ -1,22 +1,22 @@
+import 'package:fits_right/routes/screen_names.dart';
+import 'package:fits_right/utils/app_colors.dart';
 import 'package:fits_right/views/common/widgets/back_button.dart';
 import 'package:fits_right/views/common/widgets/measure_tab_bar.dart';
 import 'package:fits_right/views/common/widgets/measure_tab_bar_view.dart';
+import 'package:fits_right/views/common/widgets/measurement_unit_selector.dart';
+import 'package:fits_right/views/common/widgets/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../routes/screen_names.dart';
-import '../../../utils/app_colors.dart';
-import '../../common/widgets/measurement_unit_selector.dart';
-import '../../common/widgets/my_button.dart';
 
-class TakeMeasurement extends StatefulWidget {
-  const TakeMeasurement({super.key});
+class TakeMeasurementMale extends StatefulWidget {
+  const TakeMeasurementMale({super.key});
 
   @override
-  State<TakeMeasurement> createState() => _TakeMeasurementState();
+  State<TakeMeasurementMale> createState() => _TakeMeasurementMale();
 }
 
-class _TakeMeasurementState extends State<TakeMeasurement>
+class _TakeMeasurementMale extends State<TakeMeasurementMale>
     with SingleTickerProviderStateMixin {
   late Size size;
   late TabController _tabController;
@@ -131,7 +131,7 @@ class _TakeMeasurementState extends State<TakeMeasurement>
         bodyPartModel: ('assets/pngs/chest_male.png'),
       ),
       MeasureTabBarView(
-        bodyPart: 'Waists',
+        bodyPart: 'Waist',
         bodyPartModel: ('assets/pngs/waist_male.png'),
       ),
       MeasureTabBarView(
@@ -223,52 +223,6 @@ class _TakeMeasurementState extends State<TakeMeasurement>
   //         });
   //       },
   //     ),
-  //   );
-  // }
-
-  // Widget _measurementUnit() {
-  //   return Row(
-  //     mainAxisAlignment: MainAxisAlignment.end,
-  //     children: [
-  //       Container(
-  //         width: size.width * 0.16,
-  //         height: size.height * 0.04,
-  //         decoration: BoxDecoration(
-  //             color: AppColors.commonBtnColor,
-  //             borderRadius: BorderRadius.circular(20)),
-  //         child: Padding(
-  //           padding: const EdgeInsets.all(8.0),
-  //           child: Center(
-  //             child: Text(
-  //               'inches',
-  //               style: textStyle(
-  //                   FontWeight.w400, Colors.white, size.height * 0.014),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //       SizedBox(
-  //         width: size.width * 0.02,
-  //       ),
-  //       Container(
-  //         width: size.width * 0.16,
-  //         height: size.height * 0.04,
-  //         decoration: BoxDecoration(
-  //             //  color: Colors.blue,
-  //             border: Border.all(width: 1, color: const Color(0xFFBDC6D1)),
-  //             borderRadius: BorderRadius.circular(20)),
-  //         child: Padding(
-  //           padding: const EdgeInsets.all(8.0),
-  //           child: Center(
-  //             child: Text(
-  //               'cm',
-  //               style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-  //                   size.height * 0.014),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //     ],
   //   );
   // }
 
