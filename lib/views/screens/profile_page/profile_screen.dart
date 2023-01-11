@@ -180,36 +180,35 @@ class _ProfileScreenState extends State<ProfileScreen>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Flexible(
-                  child: Text(
-                'Wade Warren',
-                style: textStyle(FontWeight.w600, const Color(0xff000000),
-                    size.height * 0.020),
-              )),
+                child: Text(
+                  'Wade Warren',
+                  style: textStyle(FontWeight.w600, const Color(0xff000000),
+                      size.height * 0.020),
+                ),
+              ),
               Flexible(
                 child: SizedBox(
                   width: size.width * 0.8,
                   height: size.height * 0.05,
-                  child: Flexible(
-                    child: Row(
-                      children: [
-                        Flexible(
-                          child: SizedBox(
-                            width: size.width * 0.16,
-                          ),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: SizedBox(
+                          width: size.width * 0.16,
                         ),
-                        SvgPicture.asset('assets/svgs/profileemailicon.svg'),
-                        Flexible(
-                          child: SizedBox(
-                            width: size.width * 0.03,
-                          ),
+                      ),
+                      SvgPicture.asset('assets/svgs/profileemailicon.svg'),
+                      Flexible(
+                        child: SizedBox(
+                          width: size.width * 0.03,
                         ),
-                        Text(
-                          'wadewarren@example.com',
-                          style: textStyle(FontWeight.w500,
-                              const Color(0xFF818D92), size.height * 0.012),
-                        ),
-                      ],
-                    ),
+                      ),
+                      Text(
+                        'wadewarren@example.com',
+                        style: textStyle(FontWeight.w500,
+                            const Color(0xFF818D92), size.height * 0.012),
+                      ),
+                    ],
                   ),
                 ),
               ),
