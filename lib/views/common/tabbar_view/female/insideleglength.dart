@@ -20,7 +20,8 @@ class _InsideLegLengthTabBarViewState extends State<InsideLegLengthTabBarView> {
     var size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Column(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -30,26 +31,22 @@ class _InsideLegLengthTabBarViewState extends State<InsideLegLengthTabBarView> {
                     size.height * 0.018),
               ),
             ),
-          ],
-        ),
-        Expanded(
-          child: SizedBox(
-            child: Image.asset('assets/pngs/insideleglength_female.png'),
-          ),
-        ),
-        Positioned(
-          right: 10,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
                 onTap: () {
                   showDialog(
                     context: context,
                     builder: (context) => const InsideLegLengthDialog(),
                   );
                 },
-                child: SvgPicture.asset('assets/svgs/informationicon.svg')),
-          ),
+                child: SvgPicture.asset('assets/svgs/informationicon.svg'),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          child: Image.asset('assets/pngs/insideleglength_female.png'),
         ),
       ],
     );
