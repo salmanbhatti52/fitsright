@@ -22,19 +22,17 @@ class _AddMemeberScreenDialogState extends State<AddMemeberScreenDialog> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
-            height: size.height * 0.3,
+            height: size.height * 0.26,
             width: size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Flexible(child: SizedBox(height: size.height * 0.06)),
-                Flexible(
-                  child: Text(
-                    'He is a member and we \n forwarded an email to \n the member to allow \n you to see their sizes.',
-                    style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-                        size.height * 0.018),
-                    textAlign: TextAlign.center,
-                  ),
+                Text(
+                  'He is a member and we \n forwarded an email to \n the member to allow \n you to see their sizes.',
+                  style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
+                      size.height * 0.018),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * 0.036),
                 Flexible(child: _okButton()),
@@ -93,19 +91,17 @@ class _AddMemeberScreenDialog2State extends State<AddMemeberScreenDialog2> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
-            height: size.height * 0.25,
+            height: size.height * 0.22,
             width: size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Flexible(child: SizedBox(height: size.height * 0.05)),
-                Flexible(
-                  child: Text(
-                    'He is not a member, we \n forwarded an email for \n signup.',
-                    style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-                        size.height * 0.018),
-                    textAlign: TextAlign.center,
-                  ),
+                Text(
+                  'He is not a member, we \n forwarded an email for \n signup.',
+                  style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
+                      size.height * 0.018),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * 0.036),
                 Flexible(child: _okButton()),

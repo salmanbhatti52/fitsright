@@ -22,19 +22,17 @@ class _FeedBackScreenDialogState extends State<FeedBackScreenDialog> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
-            height: size.height * 0.3,
+            height: size.height * 0.26,
             width: size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Flexible(child: SizedBox(height: size.height * 0.06)),
-                Flexible(
-                  child: Text(
-                    'Thanks for submitting \n your feedback. Our \n team will get back to \n you ASAP.',
-                    style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
-                        size.height * 0.018),
-                    textAlign: TextAlign.center,
-                  ),
+                Text(
+                  'Thanks for submitting \n your feedback. Our \n team will get back to \n you ASAP.',
+                  style: textStyle(FontWeight.w400, const Color(0xFF8D99AE),
+                      size.height * 0.018),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * 0.036),
                 Flexible(child: _okButton()),
