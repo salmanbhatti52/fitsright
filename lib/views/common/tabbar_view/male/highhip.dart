@@ -19,7 +19,8 @@ class _HighHipTabBarViewState extends State<HighHipTabBarView> {
     var size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Column(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -29,26 +30,22 @@ class _HighHipTabBarViewState extends State<HighHipTabBarView> {
                     size.height * 0.018),
               ),
             ),
-          ],
-        ),
-        Expanded(
-          child: SizedBox(
-            child: Image.asset('assets/pngs/highhip_male.png'),
-          ),
-        ),
-        Positioned(
-          right: 10,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
                 onTap: () {
                   showDialog(
                     context: context,
                     builder: (context) => const HighHipDialog(),
                   );
                 },
-                child: SvgPicture.asset('assets/svgs/informationicon.svg')),
-          ),
+                child: SvgPicture.asset('assets/svgs/informationicon.svg'),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          child: Image.asset('assets/pngs/highhip_male.png'),
         ),
       ],
     );
